@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+<div class="tete">
+    <br>
+    <h1>{% page_attribute "page_title" %}</h1>
+</div>
+<section class="blog">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+            <img src="{% static 'assets/img/labo/39.png' %}" alt=""
+                 class="img-fluid"/>
+        </div>
+        <div class="col-5 bg-white d-flex flex-column">
+            <div class="mb-auto">
+                <h1 class="card-title" style="color: #1F5793;">
+                    Laboratoire : Ingénierie des Structures,
+                    Procédés , Systèmes Intelligents et
+                    Informatique (ISPS2I)
+                </h1>
+                <br>
+                <p><strong>
+                    Directeur : Pr. A. MOUCHTACHI<br>
+                    Directeur adjoint : Pr. B. KISSI
+                </strong>
+                </p>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+            <img src="{% static 'assets/img/labo/40.png' %}" alt=""
+                 class="img-fluid"/>
+        </div>
+        <div class="col-5 bg-white d-flex flex-column">
+            <div class="mb-auto">
+                <h1 class="card-title" style="color: #1F5793;">
+                    Laboratoire : Artificial intelligence & complex
+                    systems engineering (AICSE)
+                </h1>
+                <br>
+                <p><strong>Directeur : Pr. M. HAIN
+                    Directeur adjoint : Pr. O. MERROUN
+                    Équipes de recherche :
+                    <ul>
+                        <li>
+                            Développement et Optimisation des Systèmes
+                            Complexes (DOSyC)
+                            (Chef d’équipe : Pr. AIT EL FQIH Si Mohammed)
+                        </li>
+                        <li> Artificial Intelligence and Information Technology
+                            (A2IT)
+                            (Chef d’équipe : Pr. MOUTACHAOUIK HICHAM)
+                        </li>
+                        <li> Industrial Systems Modeling and Optimization (ISMO)
+                            (Chef d’équipe : Pr. MEDDAOUI Anwar)
+                        </li>
+                    </ul>
+                </strong></p>
+
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+            <img src="{% static 'assets/img/labo/41.png' %}" alt=""
+                 class="img-fluid"/>
+        </div>
+        <div class="col-5 bg-white d-flex flex-column">
+            <div class="mb-auto">
+                <h1 class="card-title" style="color: #1F5793;">
+                    Laboratoire : Complex Cyber Physical
+                    Systems (CCPS)
+
+                </h1>
+                <br>
+                <p><strong>Directeur : Pr. M. HAMLICH
+                    Directeur adjoint : Pr. M. MOUTCHOU
+                    Équipes de recherche permanentes :
+                    <ul>
+                        <li>
+                            Smart Systems for Energy, Industry and Manufacturing
+                            (SSEIM)
+                            (Chef d’équipe : Pr. ZEGRARI Mourad)
+                        </li>
+                        <li> Smart Control, Diagnostic and Renewable Energy
+                            (SCDRE)
+                            (Chef d’équipe : Pr. AIT ELMAHJOUB Abdelhafid)
+                        </li>
+                        <li> Smart Materials and Artificial Intelligent (SMAI)
+                            (Chef d’équipe: Pr. TAYANE Souad)
+
+                        </li>
+                    </ul>
+                    Équipes de recherche associées :
+                    <ul>
+                        <li>Sciences de la Santé (2S)
+                            (Chef d’équipe: Pr. FELLAH Hassan)
+                        </li>
+                        <li>
+                            Systèmes Industriels Intelligents (S2I)
+                            (Chef d’équipe: Pr. TABAA Mohamed)
+                        </li>
+                    </ul>
+                </strong></p>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <br>
+
+</section>
+{% endblock %}

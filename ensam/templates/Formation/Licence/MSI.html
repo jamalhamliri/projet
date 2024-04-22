@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+
+<div class="tete">
+    <br>
+    <h1>Management des systemes industriels</h1>
+</div>
+
+<section id="team" class="team ">
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <div class="card card-primary card-tabs">
+                    <ul class="nav nav-pills mb-3 custom-tab" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                    aria-selected="true">Objectifs et Débouchés
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-profile" type="button" role="tab"
+                                    aria-controls="pills-profile"
+                                    aria-selected="false">Conditions d'admission
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-contact" type="button" role="tab"
+                                    aria-controls="pills-contact"
+                                    aria-selected="false">Contact
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-plus-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-plus" type="button" role="tab"
+                                    aria-controls="pills-plus"
+                                    aria-selected="false">
+                                Brochure
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                             aria-labelledby="pills-home-tab">
+                            <p style="margin-left: 20px;">
+                                <strong><U>Objectifs de la formation</U></strong>
+                                <br>
+                                La formation de licence professionnelle d’université en management des systèmes
+                                industriels de l’ENSAM de Casablanca dote son titulaire des outils techniques et
+                                managerieles pour gérer les processus industriels avec les aspects et contraintes
+                                d’optimisation des flux, des délais, de la qualité, de la sécurité, et des ressources
+                                humaines et matérielles.
+                                Le diplômé est capable de comprendre et de gérer le flux industriel en intégrant les
+                                contraintes d’achat, d’approvisionnement des composants, de contraintes de production,
+                                de disponibilité des machines et de livraison des produits finis.
+
+
+                                <br>
+                                <strong><U>Débouchés</U></strong>
+                                <br>
+                                Cadre production
+                                Cadre qualité / Coordinateur de projets d’amélioration continue
+                                Responsable de gestion de stocks / Coordinateur logistique / Approvisionneur /
+                                Planificateur
+                                Coordinateur HSE hygiène, sécurité et environnement / Risques industriels
+                                Cadre au bureau de méthode & développement / Cadre en maintenance des systèmes
+                                Assistant directeur usine ou directeur industriel
+
+
+                            </p>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                             aria-labelledby="pills-profile-tab">
+                            <div style="margin-left: 20px;">
+                                <strong><U>Admission</U></strong>
+                                <br>
+                                L’accès est ouvert à tous les titulaires d’un bac+2 (DTS, BTS, DUT, DEUG, DEUST, ...) ou
+                                tout diplôme reconnu équivalent. Les candidats munies du dossier d’inscription passent
+                                un entretien de sélection pour valider leur candidature.
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                            <div style="margin-left: 20px;">
+                                <h3>Responsable de la formation:</h3>
+
+                                <p>E-mail: lmsi.ensam@gmail.com</p>
+
+
+                                <p>ENSAM:<br>
+                                    Adresse de l’école: 150 Avenue Nile Sidi Othman, Casablanca
+                                    N° de Téléphone: 05 22 56 42 22</p>
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-plus" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                            <object data="{% static 'assets/pdf/formation/licence/sys_indus.pdf' %}"
+                                    type="application/pdf"
+                                    width="100%"
+                                    height="800px">
+                                <p>Impossible d'afficher le PDF. Veuillez <a
+                                        href="{% static 'assets/pdf/formation/licence/sys_indus.pdf' %}">télécharger
+                                    le
+                                    fichier</a> pour le visualiser.</p>
+                            </object>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

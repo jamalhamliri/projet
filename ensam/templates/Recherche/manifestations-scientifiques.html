@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+
+<div class="tete">
+    <br>
+    <h1>{% page_attribute "page_title" %}</h1>
+</div>
+<br><br>
+
+<style>
+    .filiere {
+        height: 300px;
+        width: 420px;
+        margin-left: 20px;
+
+    }
+
+    .filiere1 {
+        height: 120px;
+        width: 180px;
+        margin-left: 20px;
+
+    }
+
+    h3 {
+        font-weight: bold;
+    }
+</style>
+<div class="d-none d-lg-block">
+    <div class="row">
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/27.png' %}">
+            <center><a href="https://www.orange.ma/">
+                <h3>Orange</h3>
+            </a></center>
+        </div>
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/30.png' %}">
+            <center><a href="https://www.topsolid.com/fr-fr">
+                <h3>Topsolid</h3>
+            </a></center>
+        </div>
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/32.png' %}">
+            <center><a target="_blank" href="https://expleo.com/global/en/" title="Expleo">
+                <h3>expleo</h3>
+            </a></center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/24.png' %}">
+            <center><a href="https://aws.amazon.com/fr/certification/">
+                <h3>amazon</h3>
+            </a></center>
+        </div>
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/23.png' %}">
+            <center><a href="https://e.huawei.com/en/talent/">
+                <h3>huawei</h3>
+            </a></center>
+        </div>
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/22.png' %}">
+            <center><a href="https://www.cisco.com/c/en/us/index.html">
+                <h3>cisco</h3>
+            </a></center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/21.png' %}">
+            <center><a href="https://www.oracle.com/fr/index.html">
+                <h3>oracle</h3>
+            </a></center>
+        </div>
+    </div>
+</div>
+<div class="d-block d-lg-none">
+    <div class="row">
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/27.png' %}">
+            <center><a href="https://www.orange.ma/">
+                <h3>Orange</h3>
+            </a></center>
+        </div>
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/30.png' %}">
+            <center><a href="https://www.topsolid.com/fr-fr">
+                <h3>Topsolid</h3>
+            </a></center>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/32.png' %}">
+            <center><a target="_blank" href="https://expleo.com/global/en/" title="Expleo">
+                <h3>expleo</h3>
+            </a></center>
+        </div>
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/24.png' %}">
+            <center><a href="https://aws.amazon.com/fr/certification/">
+                <h3>amazon</h3>
+            </a></center>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/23.png' %}">
+            <center><a href="https://e.huawei.com/en/talent/">
+                <h3>huawei</h3>
+            </a></center>
+        </div>
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/22.png' %}">
+            <center><a href="https://www.cisco.com/c/en/us/index.html">
+                <h3>cisco</h3>
+            </a></center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/21.png' %}">
+            <center><a href="https://www.oracle.com/fr/index.html">
+                <h3>oracle</h3>
+            </a></center>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

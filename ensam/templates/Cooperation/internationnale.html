@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+
+<div class="tete">
+    <br>
+    <h1>{% page_attribute "page_title" %}</h1>
+</div>
+<div style="text-align: center; margin-bottom: 10px;">
+    <hr style="color: #1F5793; width: 10%; height:10px; display: inline-block;margin-right: 10px;margin-bottom: 0px;  ">
+    <h1 style="color: #1F5793; display: inline-block;">Programme de mobilité des étudiants</h1>
+    <hr style="color: #1F5793; width: 10%;height:10px; display: inline-block;margin-left: 10px;margin-bottom: 0px; ">
+</div>
+<style>
+    .filiere {
+        height: 300px;
+        width: 420px;
+        margin-left: 20px;
+
+    }
+
+    .filiere1 {
+        height: 120px;
+        width: 180px;
+        margin-left: 20px;
+
+    }
+
+    h3 {
+        font-weight: bold;
+    }
+</style>
+<div class="d-none d-lg-block">
+    <div class="row">
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/14.png' %}">
+            <center><a href="https://www.utbm.fr/">
+                <h3>UTBM : Université de Technologie de Belfort-Montbéliard</h3>
+            </a></center>
+        </div>
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/15.png' %}">
+            <center><a href="https://www.sigma-clermont.fr/fr">
+                <h3>CIGMA Clermont</h3>
+            </a></center>
+        </div>
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/16.png' %}">
+            <center><a href="https://www.artsetmetiers.fr/fr">
+                <h3>ARTS ET MÉTIERS PARISTECH</h3>
+            </a></center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/17.png' %}">
+            <center><a href="https://http://www.fsb.univh2c.ma/">
+                <h3>FSBM</h3>
+            </a></center>
+        </div>
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/18.png' %}">
+            <center><a href="https://http://www.oreilleducampus.org/universite-ouagadougou">
+                <h3>IBAM (INSTITUT BURKINABE DES ARTS ET METIERS)</h3>
+            </a></center>
+        </div>
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/19.png' %}">
+            <center><a href="https://ensem.univ-lorraine.fr/">
+                <h3>ENSEM</h3>
+            </a></center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <img class="filiere" src="{% static 'assets/img/partenariats/20.png' %}">
+            <center><a href="https://www.eilco-ulco.fr/">
+                <h3>EIL: Ecole d'Ingénieurs du Littoral</h3>
+            </a></center>
+        </div>
+    </div>
+</div>
+<div class="d-block d-lg-none">
+    <div class="row">
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/14.png' %}">
+            <center><a href="https://www.utbm.fr/">
+                <h3>UTBM : Université de Technologie de Belfort-Montbéliard</h3>
+            </a></center>
+        </div>
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/15.png' %}">
+            <center><a href="https://www.sigma-clermont.fr/fr">
+                <h3>CIGMA Clermont</h3>
+            </a></center>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/16.png' %}">
+            <center><a href="https://www.artsetmetiers.fr/fr">
+                <h3>ARTS ET MÉTIERS PARISTECH</h3>
+            </a></center>
+        </div>
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/17.png' %}">
+            <center><a href="https://http://www.fsb.univh2c.ma/">
+                <h3>FSBM</h3>
+            </a></center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/18.png' %}">
+            <center><a href="https://http://www.oreilleducampus.org/universite-ouagadougou">
+                <h3>IBAM (INSTITUT BURKINABE DES ARTS ET METIERS)</h3>
+            </a></center>
+        </div>
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/19.png' %}">
+            <center><a href="https://ensem.univ-lorraine.fr/">
+                <h3>ENSEM</h3>
+            </a></center>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img class="filiere1" src="{% static 'assets/img/partenariats/20.png' %}">
+            <center><a href="https://www.eilco-ulco.fr/">
+                <h3>EIL: Ecole d'Ingénieurs du Littoral</h3>
+            </a></center>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

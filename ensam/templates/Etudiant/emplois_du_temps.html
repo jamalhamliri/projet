@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+
+
+<div class="tete">
+    <br>
+    <h1>Emplois du temps</h1>
+</div>
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-lg-10 entries">
+
+        <!------ Include the above in your HEAD tag ---------->
+
+        <section class="get-in-touch">
+            <h1 class="title">
+                <center><img style="height: 200px;width: 200px;"
+                             src="{% static 'assets/img/etudiants.png' %}"></center>
+            </h1>
+
+            <form class="contact-form row" method="POST">
+                <center><h4>Veuillez selectionner votre niveau et votre filière </h4></center>
+                {% csrf_token %}
+                <div class="form-field col-lg-6">
+                    <select class="form-select" aria-label="Default select example" id="niveau" name="niveau">
+                        <option value="" selected="">-- Choisissez votre niveau --</option>
+                        {% for niveau in niveaux %}
+                        <option value="{{niveau.id}}">{{niveau.niveau}}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-field col-lg-6">
+                    <select class="form-select" aria-label="Default select example" id="filiere" name="filiere">
+                        <option value="" selected="">-- Choisissez votre filiére --</option>
+                         {% for filiere in filieres%}
+                        <option value="{{filiere.id}}">{{filiere.filiere}}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <br>
+                <br>
+                <div class="form-field col-lg-12">
+                    <center><input class="btn btn-primary" type="submit" value="Télécharger"></center>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+<div class="tete">
+    <br>
+    <h1>Présentation</h1>
+</div>
+<style>
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animated-text {
+        animation: fadeInUp 1s ease-out;
+    }
+</style>
+<section id="blog" class="blog mb-0">
+    <div class="container1" data-aos="fade-up">
+        <div class="row">
+
+            <div class="col-lg-12 entries">
+                <center><strong><h1 style="color:#1F5793; font-size:40px;">ECOLE NATIONALE SUPERIEURE D’ARTS ET METIERS
+                    CASABLANCA</h1></strong></center>
+                <br>
+                <center><strong>
+                    <p class="animated-text" style="color:black; font-size:20px;margin-left:20px;margin-right: 20px;">
+                        Créée en 2010, dans la
+                        plus grande agglomération
+                        industrielle du Royaume pour répondre aux besoins en
+                        ingénieurs, l’École Nationale Supérieure des Arts et Métiers de Casablanca relevant de
+                        l’Université
+                        Hassan II de
+                        Casablanca, est une école d’ingénieurs étatique qui assure une formation d’ingénieurs
+                        pluri-compétents, humanistes,
+                        innovants et dotés d’un esprit entrepreneurial, opérants dans différents secteurs industriels
+                        privés
+                        et publics à
+                        l’échelle nationale et internationale.
+                    </p></strong></center>
+                <img style="width:100%;" src="{% static 'assets/img/ensamecole.png' %}" alt=""/>
+                <div style="background-color:#1F5793;">
+                    <div style="text-align: center; ">
+                        <hr style="color: white; width: 10%; height:10px; display: inline-block;margin-right: 10px;margin-bottom: 0px; ">
+                        <h1 style="color: white; display: inline-block;">NOS MISSIONS</h1>
+                        <hr style="color: white; width: 10%;height:10px; display: inline-block;margin-left: 10px;margin-bottom: 0px; ">
+                    </div>
+                    <center><strong>
+                        <p style="color:white; font-size:20px;margin-left:20px;margin-right: 20px;">Afin d’être à la
+                            hauteur des attentes de ses élèves
+                            ingénieurs, et convaincue que leur formation doit combiner : Qualité
+                            technique, managériale et relationnelle ; l’ENSAM de Casablanca vise le développement d’une
+                            offre très large de
+                            formations. Partant de ce principe, et en incitant et motivant ses étudiants à organiser
+                            différents événements (Sociales,
+                            professionnels, culturels et sportifs), elle permet à ses futurs lauréats d’acquérir:
+                        </p></strong></center>
+                    <strong>
+                        <ul style="color: white;font-size: 25px; ">
+                            <li><img style="height:100px;width: 100px;"
+                                     src="{% static 'assets/img/presentation/9.png' %}">Les
+                                compétences techniques et professionnelles de l’ingénieur
+                            </li>
+                            <li><img style="height:100px;width: 100px;"
+                                     src="{% static 'assets/img/presentation/10.png' %}">L’épanouissement
+                                de la personnalité
+                            </li>
+                            <li><img style="height:100px;width: 100px;"
+                                     src="{% static 'assets/img/presentation/11.png' %}">L’apprentissage
+                                de la responsabilité
+                            </li>
+                            <li><img style="height:100px;width: 100px;"
+                                     src="{% static 'assets/img/presentation/12.png' %}">L’adaptation
+                                à un milieu professionnel en constante évolution
+                            </li>
+                        </ul>
+                    </strong>
+
+
+                </div>
+                <div style="text-align: center; margin-bottom: 10px;">
+                    <hr style="color: #1F5793; width: 10%; height:10px; display: inline-block;margin-right: 10px;margin-bottom: 0px;  ">
+                    <h1 style="color: #1F5793; display: inline-block;">NOS FILIERES</h1>
+                    <hr style="color: #1F5793; width: 10%;height:10px; display: inline-block;margin-left: 10px;margin-bottom: 0px; ">
+                </div>
+                <style>
+                    .filiere {
+                        height: 300px;
+                        width: 420px;
+                        margin-left: 20px;
+                    }
+
+                    .filiere1 {
+                        height: 150px;
+                        width: 150px;
+                        margin-left: 20px;
+                    }
+
+                    h3 {
+                        font-weight: bold;
+                    }
+                </style>
+                <div class="d-none d-lg-block">
+                    <div class="row">
+
+                        <div class="col-4">
+                            <img class="filiere" src="{% static 'assets/img/filieres/7.png' %}">
+                            <center><h3>Génie Electromécanique </h3></center>
+                        </div>
+                        <div class="col-4">
+                            <img class="filiere" src="{% static 'assets/img/filieres/8.png' %}">
+                            <center><h3>Génie Mécanique </h3></center>
+                        </div>
+                        <div class="col-4">
+                            <img class="filiere" src="{% static 'assets/img/filieres/9.png' %}">
+                            <center><h3>Génie Industriel </h3></center>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-4">
+                            <img class="filiere" src="{% static 'assets/img/filieres/10.png' %}">
+                            <center><h3>Genie Civil
+                            </h3></center>
+                        </div>
+
+                        <div class="col-4">
+                            <img class="filiere" src="{% static 'assets/img/filieres/11.png' %}">
+                            <center><h3>Management des
+                                Systèmes Electriques
+                                Intelligents
+                            </h3></center>
+                        </div>
+                        <div class="col-4">
+                            <img class="filiere" src="{% static 'assets/img/filieres/12.png' %}">
+                            <center><h3>Intelligence Artificielle<br>
+                                et Génie Informatique </h3></center>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="d-block d-lg-none">
+                    <div class="row">
+
+                        <div class="col-6">
+                            <img class="filiere1"
+                                 src="{% static 'assets/img/filieres/7.png' %}">
+                            <center><h3>Génie Electromécanique </h3></center>
+                        </div>
+                        <div class="col-6">
+                            <img class="filiere1"
+                                 src="{% static 'assets/img/filieres/8.png' %}">
+                            <center><h3>Génie Mécanique </h3></center>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <img class="filiere1"
+                                 src="{% static 'assets/img/filieres/9.png' %}">
+                            <center><h3>Génie Industriel </h3></center>
+                        </div>
+
+                        <div class="col-6">
+                            <img class="filiere1"
+                                 src="{% static 'assets/img/filieres/10.png' %}">
+                            <center><h3>Genie Civil
+                            </h3></center>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <img class="filiere1"
+                                 src="{% static 'assets/img/filieres/11.png' %}">
+                            <center><h3>Management des
+                                Systèmes Electriques
+                                Intelligents
+                            </h3></center>
+                        </div>
+                        <div class="col-6">
+                            <img class="filiere1"
+                                 src="{% static 'assets/img/filieres/12.png' %}">
+                            <center><h3>Intelligence Artificielle<br>
+                                et Génie Informatique </h3></center>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div style="background-color:#1F5793;">
+                    <div style="text-align: center; ">
+                        <hr style="color: white; width: 10%; height:10px; display: inline-block;margin-right: 10px;margin-bottom: 0px; ">
+                        <h1 style="color: white; display: inline-block;">INTEGRER L’ENSAM CASABLANCA</h1>
+                        <hr style="color: white; width: 10%;height:10px; display: inline-block;margin-left: 10px;margin-bottom: 0px; ">
+                    </div>
+                    <strong>
+                        <p style="color:white; font-size:20px;margin-left:20px;">
+                            Un accès sélectif pour un apprentissage productif
+                            L’accès en première année de l’ENSAM est réservé aux élèves ayant obtenu :</p></strong>
+                    <ul style="color: white;font-size: 20px;margin-left:20px; ">
+                        <li>Un baccalauréat scientifique (Sciences Mathématiques A ou B, Sciences
+                            Expérimentales)
+                        </li>
+                        <li>un baccalauréat technique.
+                        </li>
+                    </ul>
+                    <strong>
+                        <p style="color:white; font-size:20px;margin-left:20px;">L’accès en troisième et quatrième
+                            année de l’ENSAM
+                            est réservé aux élèves ayant réussi :</p>
+                    </strong>
+                    <ul style="color: white;font-size: 20px;margin-left:20px; ">
+                        <li>Le concours national communs et titulaires des diplômes de DUT, DEUG, DEUST, BTS,
+                            DTS, licence ou tout diplôme reconnu
+                        </li>
+                        <li>Equivalent.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+{% endblock %}

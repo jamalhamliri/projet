@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+<div class="tete">
+    <br>
+    <h1>{% page_attribute "page_title" %}</h1>
+</div>
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-lg-10 entries">
+
+        <!------ Include the above in your HEAD tag ---------->
+
+        <section class="get-in-touch">
+            <h1 class="title">
+                <center><img style="height: 200px;width: 200px;"
+                             src="{% static 'assets/img/etudiants.png' %}"></center>
+            </h1>
+            <center><h4>Téléchargez vos documents en cliquant sur le document désiré. </h4></center>
+
+
+        </section>
+    </div>
+    <div class="col-1"></div>
+
+
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div class="card">
+            <h5 class="card-header center">
+                <center>Stage:</center>
+            </h5>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-field col-lg-5" style="background-color: #1F5793">
+                        <center><a href="{% static 'assets/pdf/Edoc/Convention de stage.pdf' %}" style="color:white;">
+                            <h4>Convention de stage</h4></a></center>
+                    </div>
+                    <div class="form-field col-lg-1 "></div>
+                    <div class="form-field col-lg-5  " style="background-color: #1F5793">
+                        <center><a href="{% static 'assets/pdf/Edoc/Convention de stage à l\'étranger.pdf' %}"
+                                   style="color:white;"><h4>Convention de stage à l'étranger</h4></a>
+                        </center>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="form-field col-lg-5" style="background-color: #1F5793">
+                        <center><a href="{% static 'assets/pdf/Edoc/demande de stage.pdf' %}" style="color:white;"><h4>
+                            Demande de stage</h4></a></center>
+                    </div>
+                    <div class="form-field col-lg-1 "></div>
+                    <div class="form-field col-lg-5 " style="background-color: #1F5793">
+                        <center><a href="{% static 'assets/pdf/Edoc/lettre de recommandation de stage.pdf' %}"
+                                   style="color:white;"><h4>Lettre de recommandation de stage</h4></a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div class="card">
+            <h5 class="card-header">
+                <center>Diplôme :</center>
+            </h5>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-field col-lg-5" style="background-color: #1F5793">
+                        <center><a href="{% static 'assets/pdf/Edoc/Décharge définitive du diplome.pdf' %}"
+                                   style="color:white;">
+                            <h4>Décharge définitive</h4></a></center>
+                    </div>
+
+
+                </div>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div class="card">
+            <h5 class="card-header">
+                <center>Activités :</center>
+            </h5>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-field col-lg-5" style="background-color: #1F5793">
+                        <center><a href="{% static 'assets/pdf/Edoc/Reservation de terrain de sport.pdf' %}"
+                                   style="color:white;"><h4>Réservation de terrain </h4></a></center>
+                    </div>
+
+                    <div class="form-field col-lg-1 "></div>
+                    <div class="form-field col-lg-5 " style="background-color: #1F5793">
+                        <center><a href="{% static 'assets/pdf/Edoc/Reservation d\'espace et de matériel.pdf' %}"
+                                   style="color:white;"><h4>Réservation d'espace et de matériel</h4></a>
+                        </center>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="form-field col-lg-5" style="background-color: #1F5793">
+                        <center><a
+                                href="{% static 'assets/pdf/Edoc/Demande d\'organisation d\'activité parascolaire.pdf' %}"
+                                style="color:white;"><h4>Demande d'autorisation pour organisation
+                            d'activité</h4></a></center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+
+{% endblock %}

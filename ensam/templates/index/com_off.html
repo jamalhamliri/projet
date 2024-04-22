@@ -1,0 +1,40 @@
+{% load static %}
+
+<div style="height: 400px;  " class="row">
+    <div class="col-3">
+        <br>
+
+        <div style="background-color: white;height: 300px;margin-left: 20px;margin-right: 20px;" class="carousel-cell">
+
+
+            <br><br><br>
+            <center><h1 style="color:#1F5793;">Communiqués Officiels</h1></center>
+
+
+        </div>
+    </div>
+    <div class="col-9">
+
+        <div style="background:transparent; " class="carousel-wrapper ">
+
+            <div class="carousel" data-flickity='{ "initialIndex": 2 }'>
+                {% for com in com_off %}
+                <div style="background-color: white;" class="carousel-cell">
+                    <img src="{{com.image_url}}"/>
+                    <center><strong>{{ com.publication_date }}</strong></center>
+                    <h6>{{com.title }}</h6>
+                    <a class="btn btn-primary more" href="{%url 'afficher' com.id %}">Afficher</a>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script>-->
+<!--    // Initialisation du carousel avec Flickity-->
+<!--    var flkty = new Flickity('.carousel', {-->
+<!--        "initialIndex": 1 // Démarrer avec l'élément du milieu en première position (index 1)-->
+<!--        // Ajoutez d'autres options Flickity au besoin-->
+<!--    });-->
+<!--</script>-->

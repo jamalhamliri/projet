@@ -1,0 +1,87 @@
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+<link href="{% static 'assets/css/header.css' %}" rel="stylesheet">
+<div>
+    <section id="topbar" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-browser-chrome d-flex align-items-center">
+                    <a href="https://ent.univh2c.ma/uPortal/f/welcome/normal/render.uP">ENT</a>
+                </i>
+                <i class="bi bi-collection d-flex align-items-center ms-4">
+                    <a href="/en/bibliotheque/">Bibliothèque</a>
+                </i>
+            </div>
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-contact d-flex align-items-center">
+                    <a href="/en/contact/"> Contact</a>
+                </i>
+            </div>
+        </div>
+    </section>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Version PC -->
+            <a href="/" class="d-none d-lg-block">
+                <center><img src="{% static 'assets/img/logolog.png' %}" alt="ENSAM Logo"/></center>
+            </a>
+            <!-- Version mobile -->
+            <a href="/" class="d-block d-lg-none">
+                <center>
+                    <img style="height: 50px;width: 200px;" src="{% static 'assets/img/logoENsam1.png' %}"
+                         alt="ENSAM Logo"/>
+                </center>
+            </a>
+        </div>
+    </div>
+
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    {% show_menu 0 100 100 100 %}
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </header>
+
+</div>
+<script>
+    window.onscroll = function () {
+        myFunction()
+    };
+
+    var header = document.getElementById("header");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("fixed-top");
+        } else {
+            header.classList.remove("fixed-top");
+        }
+    }
+
+
+</script>
+<script>
+    document.querySelectorAll('.navbar-mobile .child').forEach(function (item) {
+        item.addEventListener('mouseover', function (event) {
+            var childUl = this.querySelector('ul');
+            if (childUl) {
+                childUl.style.display = 'block';
+            }
+        });
+
+        item.addEventListener('mouseout', function (event) {
+            var childUl = this.querySelector('ul');
+            if (childUl) {
+                childUl.style.display = 'none';
+            }
+        });
+    });
+
+</script>

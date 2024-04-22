@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+
+<div class="tete">
+    <br>
+    <h1>Années Préparatoires Intégrées (API): Maths, Physique & Technologie</h1>
+</div>
+
+<section id="team" class="team ">
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <div class="card card-primary card-tabs">
+                    <ul class="nav nav-pills mb-3 custom-tab" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                    aria-selected="true">Objectifs et Débouchés
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-profile" type="button" role="tab"
+                                    aria-controls="pills-profile"
+                                    aria-selected="false">Conditions d'admission
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-contact" type="button" role="tab"
+                                    aria-controls="pills-contact"
+                                    aria-selected="false">Contact
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-plus-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-plus" type="button" role="tab"
+                                    aria-controls="pills-plus"
+                                    aria-selected="false">
+                                Brochure
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                             aria-labelledby="pills-home-tab">
+                            <p style="margin-left: 20px;">
+                                <strong><U>Objectifs de la formation</U></strong>
+                                <br>
+
+                                Filière Années Préparatoires Intégrées
+                                L’objectif principal est de préparer en deux ans les
+                                étudiants aux études des filières du cycle ingénieur. Ainsi,
+                                cette formation va permettre aux étudiants d’acquérir de
+                                bonnes compétences en Mathématiques, Physique,
+                                Chimie, Technologie, Informatique, et Techniques
+                                d’Expression et de Communication.
+                                Sa structure est telle qu’elle leur apporte de solides bases
+                                scientifiques, techniques et méthodologiques.
+                                <br>
+                                <strong><U>Organisation</U></strong>
+                                <br>
+                                La formation initiale des élèves en cycle préparatoire
+                                intégré à l’ENSAM se déroule sur 2 ans. Elle est organisée
+                                selon le principe de la semestrialisation et se décompose
+                                donc en 4 semestres (S1 à S4).
+                                Les enseignements sont définis à travers des modules
+                                d’enseignement. Chaque matière d’un module comporte
+                                des Cours Magistraux (CM), des Travaux Dirigés (TD) et
+                                des Travaux Pratiques (TP).
+                            </p>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                             aria-labelledby="pills-profile-tab">
+                             <div style="margin-left: 20px;">
+                                <strong><U>Admission</U></strong>
+                                <br>
+
+                                L’accès en 1ère année du cycle préparatoire intégré de l’ENSAM se fait via la plateforme
+                                Tawjihi
+                                pour les élèves titulaires d’un baccalauréat ou d’un diplôme reconnu équivalent dans
+                                l’une des filières ci-dessous :
+                            <ul>
+                                <li>
+                                    Baccalauréat en sciences mathématiques ;
+                                </li>
+                                <li>
+                                    Baccalauréat en sciences expérimentales ;
+                                </li>
+                                <li>
+                                    Baccalauréat en sciences et technologies ;
+                                </li>
+
+                            </ul>
+                            Baccalauréat professionnel dans l’une des filières suivantes :
+                            <ul>
+                                <li>
+                                    Construction aéronautique ;
+                                </li>
+                                <li>
+                                    Fabrication Mécanique ;
+                                </li>
+                                <li>
+                                    Maintenance industrielle ;
+                                </li>
+                                <li>
+                                    Electrotechnique, Equipements Communicants ;
+                                </li>
+                                <li>
+                                    Maintenance Informatique et Réseaux ;
+                                </li>
+                                <li>
+                                    Systèmes Electroniques et Numériques ;
+                                </li>
+                                <li>
+                                    Maintenance de Véhicules Automobiles Option : Voitures
+                                </li>
+
+                            </ul>
+                             </div>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                            <div style="margin-left: 20px;">
+
+
+                                <p><strong>ENSAM:</strong><br>
+                                    Adresse de l’école: 150 Avenue Nile Sidi Othman, Casablanca<br>
+                                    <strong>N° de Téléphone:</strong>
+                                    <br>05 22 56 42 22</p>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-plus" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                            <object data="{% static 'assets/pdf/formation/prepa/API.pdf' %}" type="application/pdf"
+                                    width="100%"
+                                    height="800px">
+                                <p>Impossible d'afficher le PDF. Veuillez <a
+                                        href="{% static 'assets/pdf/formation/prepa/API.pdf' %}">télécharger le
+                                    fichier</a> pour le visualiser.</p>
+                            </object>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

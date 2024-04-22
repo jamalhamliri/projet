@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+<style>
+    .container1 {
+        margin: 10px;
+        width: 98%;
+    }
+
+    #details {
+        font-family: "Quicksand", sans-serif;
+        font-size: 60px;
+    }
+
+    #home-box > h2 {
+        font-family: "Quicksand", sans-serif;
+        font-weight: 400;
+        line-height: 1.1;
+        color: #75b1ae;
+    }
+
+    .price {
+        font-size: 25px;
+        float: left;
+    }
+
+    .pricing_header {
+        background: none repeat scroll 0% 0% #1F5793;
+        border-radius: 5px 5px 0px 0px;
+        transition: background 0.4s ease-out 0s;
+    }
+
+    .pricing_header h2 {
+        text-align: center;
+        line-height: 25px;
+        padding: 15px 0px;
+        margin: 0px;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 400;
+        color: #FFFFFF;
+    }
+
+    .list-group-item:first-child {
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+
+    .btn {
+        float: right;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 500;
+    }
+
+    .off {
+        text-decoration: line-through;
+        color: rgb(86, 86, 86);
+    }
+
+    .space {
+        height: 2px;
+        background-color: #75b1ae;
+    }
+
+    a {
+        color: black;
+    }
+
+    a:hover {
+        color: #1F5793;
+    }
+</style>
+<div class="tete">
+    <br>
+    <h1>Formations</h1>
+</div>
+
+<!-- price & service -->
+<div class="container1">
+    <div class="row">
+        <div class="col-md-3" id="home-box">
+            <div class="pricing_header">
+                <h2>Cycle Préparatoire</h2>
+                <div class="space"></div>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{% url 'api' %}"><span class="glyphicon glyphicon-ok"></span> Années Préparatoires
+                        Intégrées (API): Maths, Physique & Technologie</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Pack 2-->
+        <div class="col-md-3" id="home-box">
+            <div class="pricing_header">
+                <h2>Cycle Ingénieur</h2>
+                <div class="space"></div>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="{% url 'ge' %}"><span class="glyphicon glyphicon-ok"></span>Génie
+                    Electromécanique</a></li>
+                <li class="list-group-item"><a href="{% url 'gm' %}"><span class="glyphicon glyphicon-ok"></span>Génie
+                    Mécanique</a></li>
+                <li class="list-group-item"><a href="{% url 'mse' %}"><span class="glyphicon glyphicon-ok"></span>Management
+                    des Systèmes Électriques Intelligents</a></li>
+                <li class="list-group-item"><a href="{% url 'iagi' %}"><span class="glyphicon glyphicon-ok"></span>Intelligence
+                    Artificielle et Génie Informatique</a></li>
+
+            </ul>
+
+
+        </div>
+
+
+        <!-- Pack 4-->
+        <div class="col-md-3" id="home-box">
+            <div class="pricing_header">
+                <h2>Licence</h2>
+                <center><h4 style="color:white;">(Formation Continue)</h4></center>
+                <div class="space"></div>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="{% url 'aise' %}"><span class="glyphicon glyphicon-ok"></span>
+                    Automatismes
+                    industriels & systèmes électriques</a></li>
+                <li class="list-group-item"><a href="{% url 'dlss' %}"><span class="glyphicon glyphicon-ok"></span>
+                    Développement
+                    Logiciel et Sécurité des systèmes</a></li>
+                <li class="list-group-item"><a href="{% url 'idami' %}"><span class="glyphicon glyphicon-ok"></span>
+                    Ingénierie en
+                    diagnostic automobile et maintenance industrielle</a></li>
+                <li class="list-group-item"><a href="{% url 'csaa' %}"><span class="glyphicon glyphicon-ok"></span>
+                    Conception de
+                    systèmes automobiles et aéronautiques</a></li>
+                <li class="list-group-item"><a href="{% url 'gc' %}"><span class="glyphicon glyphicon-ok"></span> Génie
+                    Civil</a>
+                </li>
+                <li class="list-group-item"><a href="{% url 'qse' %}"><span class="glyphicon glyphicon-ok"></span>
+                    Qualité sécurité
+                    environnement</a></li>
+                <li class="list-group-item"><a href="{% url 'msi' %}"><span class="glyphicon glyphicon-ok"></span>
+                    Management des
+                    systemes industriels</a></li>
+                <li class="list-group-item"><a href="{% url 'dwm' %}"><span class="glyphicon glyphicon-ok"></span>
+                    Développement web
+                    et mobile</a></li>
+                <li class="list-group-item"><a href="{% url 'di' %}"><span class="glyphicon glyphicon-ok"></span>
+                    Digitalisation
+                    industrielle</a></li>
+                <li class="list-group-item"><a href="{% url 'tts' %}"><span class="glyphicon glyphicon-ok"></span>
+                    Technologies de
+                    traitement des surfaces</a></li>
+
+            </ul>
+
+
+        </div>
+        <!-- Pack 3-->
+        <div class="col-md-3" id="home-box">
+            <div class="pricing_header">
+                <h2>Master</h2>
+                <center><h4 style="color:white;">(Formation Continue)</h4></center>
+                <div class="space"></div>
+            </div>
+            <ul class="list-group">
+
+                <li class="list-group-item"><a href="{% url 'cime' %}"><span class="glyphicon glyphicon-ok"></span>
+                    Contrôle industriel & management de l’énergie</a></li>
+                <li class="list-group-item"><a href="{% url 'mitd' %}"><span class="glyphicon glyphicon-ok"></span>Management
+                    industriel et transformation digitale</a></li>
+                <li class="list-group-item"><a href="{% url 'gcbcm' %}"><span class="glyphicon glyphicon-ok"></span>
+                    Génie civil, bâtiment et construction métallique</a></li>
+
+            </ul>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

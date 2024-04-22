@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+<style>
+    .container1 {
+        margin: 10px;
+        width: 98%;
+    }
+
+    #details {
+        font-family: "Quicksand", sans-serif;
+        font-size: 60px;
+    }
+
+    #home-box > h2 {
+        font-family: "Quicksand", sans-serif;
+        font-weight: 400;
+        line-height: 1.1;
+        color: #75b1ae;
+    }
+
+    .price {
+        font-size: 25px;
+        float: left;
+    }
+
+    .pricing_header {
+        background: none repeat scroll 0% 0% #1F5793;
+        border-radius: 5px 5px 0px 0px;
+        transition: background 0.4s ease-out 0s;
+    }
+
+    .pricing_header h2 {
+        text-align: center;
+        line-height: 25px;
+        padding: 15px 0px;
+        margin: 0px;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 400;
+        color: #FFFFFF;
+    }
+
+    .list-group-item:first-child {
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+
+    .btn {
+        float: right;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 500;
+    }
+
+    .off {
+        text-decoration: line-through;
+        color: rgb(86, 86, 86);
+    }
+
+    .space {
+        height: 2px;
+        background-color: #75b1ae;
+    }
+    a {
+        color: black;
+    }
+
+    a:hover {
+        color: #1F5793;
+    }
+</style>
+<div class="tete">
+    <br>
+    <h1>Cycle Préparatoire</h1>
+</div>
+<div class="container1">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" id="home-box">
+            <div class="pricing_header">
+                <h2>Cycle Préparatoire</h2>
+                <div class="space"></div>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{% url 'api' %}"><span class="glyphicon glyphicon-ok"></span> Années Préparatoires
+                        Intégrées (API): Maths, Physique & Technologie</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

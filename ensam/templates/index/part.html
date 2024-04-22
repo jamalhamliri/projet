@@ -1,0 +1,157 @@
+{% load static %}
+<style>
+    #myCarousel {
+        margin-top: 50px;
+
+    }
+
+    @media (max-width: 768px) {
+        .carousel-inner .carousel-item > div {
+            display: none;
+        }
+
+        .carousel-inner .carousel-item > div:first-child {
+            display: block;
+        }
+    }
+
+    .carousel-inner .carousel-item.active,
+    .carousel-inner .carousel-item-start,
+    .carousel-inner .carousel-item-next,
+    .carousel-inner .carousel-item-prev {
+        display: flex;
+    }
+
+    @media (min-width: 768px) {
+
+        .carousel-inner .carousel-item-right.active,
+        .carousel-inner .carousel-item-next,
+        .carousel-item-next:not(.carousel-item-start) {
+            transform: translateX(25%) !important;
+        }
+
+        .carousel-inner .carousel-item-left.active,
+        .carousel-item-prev:not(.carousel-item-end),
+        .active.carousel-item-start,
+        .carousel-item-prev:not(.carousel-item-end) {
+            transform: translateX(-25%) !important;
+        }
+
+        .carousel-item-next.carousel-item-start,
+        .active.carousel-item-end {
+            transform: translateX(0) !important;
+        }
+
+        .carousel-inner .carousel-item-prev,
+        .carousel-item-prev:not(.carousel-item-end) {
+            transform: translateX(-25%) !important;
+        }
+    }
+</style>
+
+<div id="myCarousel" class="carousel slide container" data-bs-ride="carousel">
+    <div class="carousel-inner w-100">
+        <div class="carousel-item active">
+            <div class="col-md-3">
+                <div style="background-color: white; margin-left: 15px;margin-right: 15px;border-radius: 10%;" class="card card-body">
+                    <a href="https://www.orange.ma/" target="_blank" title="Orange">
+                        <img alt="" height="170" width="250px"
+                             src="{%static 'assets/img/partenariats/7.png' %}" >
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div  class="col-md-3">
+                <div style="background-color: white; margin-left: 15px;margin-right: 15px;border-radius: 10%;"  class="card card-body">
+                    <a href="https://www.topsolid.com/fr-fr" target="_blank" title="TopSolid">
+                        <img alt="" height="170" width="250px"
+                             src="{%static 'assets/img/partenariats/10.png' %}" width="200">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="col-md-3">
+                <div style="background-color: white; margin-left: 15px;margin-right: 15px;border-radius: 10%;" class="card card-body">
+                    <a target="_blank" href="https://expleo.com/global/en/" title="Expleo">
+                        <img  height="170" width="250px"
+                             src="{%static 'assets/img/partenariats/12.png' %}"  alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="col-md-3">
+                <div style="background-color: white; margin-left: 15px;margin-right: 15px;border-radius: 10%;" class="card card-body">
+                    <a href="https://aws.amazon.com/fr/certification/" target="_blank" title="Amazon">
+                        <img alt="" height="100" width="250px"
+                             class="img-fluid"
+                             src="{%static 'assets/img/partenariats/4.png' %}">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="col-md-3">
+                <div style="background-color: white; margin-left: 15px;margin-right: 15px;border-radius: 10%;" class="card card-body">
+                    <a href="https://e.huawei.com/en/talent/" target="_blank" title="Huawei">
+                        <img alt="" height="100" width="250px"
+                             class="img-fluid"
+                             src="{%static 'assets/img/partenariats/3.png' %}">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="col-md-3">
+                <div style="background-color: white; margin-left: 15px;margin-right: 15px;border-radius: 10%;" class="card card-body">
+                    <a href="https://www.cisco.com/c/en/us/index.html" target="_blank" title="CISCO">
+                        <img alt="" height="100" width="250px"
+                             class="img-fluid"
+                             src="{%static 'assets/img/partenariats/2.png' %}">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="col-md-3">
+                <div style="background-color: white; margin-left: 15px;margin-right: 15px;border-radius: 10%;" class="card card-body">
+                    <a href="https://www.oracle.com/fr/index.html" target="_blank" title="ORACLE">
+                        <img alt="" height="100" width="250px"
+                             class="img-fluid"
+                             src="{%static 'assets/img/partenariats/1.png' %}">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button style="width: 50px;height: 50px;top:50%;"  class="carousel-control-prev btn-primary ml-0" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+        <span class="visually-hidden"></span>
+    </button>
+    <button  style="width: 50px;height: 50px;top:50%;"  class="carousel-control-next btn-primary"  type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" ></span>
+        <span class="visually-hidden"></span>
+    </button>
+</div>
+<script>
+    $('.carousel .carousel-item').each(function () {
+        var minPerSlide = 4;
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        for (var i = 0; i < minPerSlide; i++) {
+            next = next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+        }
+    });
+</script>
+

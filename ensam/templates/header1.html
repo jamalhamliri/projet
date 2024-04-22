@@ -1,0 +1,312 @@
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+<style>
+    .mon-menu-personnalise {
+        list-style: none;
+        padding: 0;
+        z-index: 1000;
+
+    }
+
+    .mon-menu-personnalise li {
+        display: inline-block;
+        margin-right: 0px;
+        position: relative;
+
+    }
+
+    .mon-menu-personnalise li a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 15px;
+        display: block;
+        position: relative;
+        font-size: 20px;
+    }
+
+    /* Ajout d'une petite barre entre chaque partie de menu */
+    .mon-menu-personnalise > li:not(:first-child)::after {
+        content: '▼ |';
+        color: white;
+        margin-left: 5px;
+        position: absolute;
+        top: 50%;
+        right: -10px;
+        transform: translateY(-50%);
+    }
+
+
+    /* Sous-menu */
+    .mon-menu-personnalise ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #1F5793;
+        padding: 10px 0;
+        border: 1px solid #ccc;
+    }
+
+    .mon-menu-personnalise li:hover > ul {
+        display: block;
+    }
+
+    /* Styles pour les éléments du sous-menu */
+    .mon-menu-personnalise ul li {
+        display: block;
+        margin-right: 0;
+        white-space: nowrap;
+    }
+
+    .mon-menu-personnalise ul li a {
+        padding: 8px 20px;
+    }
+
+    /*!* Ajout d'une petite flèche vers le bas *!*/
+    /*.mon-menu-personnalise li:after {*/
+    /*    content: ' ▼'; !* Vous pouvez changer le contenu de la flèche selon vos besoins *!*/
+    /*    position: absolute;*/
+    /*    top: 50%;*/
+    /*    right: 0;*/
+    /*    transform: translateY(-50%);*/
+    /*}*/
+
+
+    /*--------------------------------------------------------------
+      # Top Bar
+      --------------------------------------------------------------*/
+    #topbar {
+        background-color: #1F5793;
+        height: 40px;
+        font-size: 20px;
+        transition: all 0.5s;
+        color: #fff;
+        padding: 0;
+
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+    #topbar .contact-info i {
+        font-style: normal;
+        color: #fff;
+    }
+
+    #topbar .contact-info i a,
+    #topbar .contact-info i span {
+        padding-left: 5px;
+        color: #fff;
+    }
+
+    #topbar .contact-info i a {
+        /*line-height: 0;*/
+        transition: 0.3s;
+        transition: 0.3s;
+    }
+
+    #topbar .contact-info i a:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+
+
+    @media (max-width: 991px) {
+        .mon-menu-personnalise {
+            display: none;
+        }
+
+        .mon-menu-personnalise.mobile-menu {
+            display: block;
+            text-align: center; /* Center the menu items */
+        }
+
+        .mon-menu-personnalise.mobile-menu li {
+            display: block;
+            text-align: center;
+        }
+
+        .mon-menu-personnalise.mobile-menu li a {
+            display: block;
+            padding: 10px;
+        }
+
+        .mon-menu-personnalise.mobile-menu ul {
+            position: static;
+            background-color: #1F5793;
+            padding: 0;
+            border: none;
+        }
+
+        /* Mobile Navigation Styles */
+        .mobile-nav-toggle {
+            color: #556270;
+            font-size: 28px;
+            cursor: pointer;
+            display: block;
+            line-height: 0;
+            transition: 0.5s;
+        }
+
+        .mobile-nav-toggle.bi-x {
+            color: #1F5793;
+        }
+
+        .navbar-mobile {
+            position: fixed;
+            overflow: hidden;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: rgba(63, 73, 83, 0.9);
+            transition: 0.3s;
+            z-index: 999;
+            text-align: center; /* Center the menu items */
+        }
+
+        .navbar-mobile .mobile-nav-toggle {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .navbar-mobile ul {
+            display: block;
+            position: absolute;
+            top: 55px;
+            right: 15px;
+            bottom: 15px;
+            left: 15px;
+            padding: 10px 0;
+            background-color: #d9232d;
+            overflow-y: auto;
+            transition: 0.3s;
+        }
+
+        .navbar-mobile a,
+        .navbar-mobile a:focus {
+            padding: 10px 20px;
+            font-size: 15px;
+            color: #556270;
+        }
+
+        .navbar-mobile a:hover,
+        .navbar-mobile .active,
+        .navbar-mobile li:hover > a {
+            color: #d9232d;
+        }
+
+
+        .navbar-mobile .dropdown ul {
+            position: static;
+            display: none;
+            margin: 10px 20px;
+            padding: 10px 0;
+            z-index: 99;
+            opacity: 1;
+            visibility: visible;
+            background: #d9232d;
+            box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+        }
+
+        .navbar-mobile .dropdown ul li {
+            min-width: 200px;
+        }
+
+        .navbar-mobile .dropdown ul a {
+            padding: 10px 20px;
+        }
+
+        .navbar-mobile .dropdown ul a i {
+            font-size: 12px;
+        }
+
+        .navbar-mobile .dropdown ul a:hover,
+        .navbar-mobile .dropdown ul .active:hover,
+        .navbar-mobile .dropdown ul li:hover > a {
+            color: #d9232d;
+        }
+
+        .navbar-mobile .dropdown > .dropdown-active {
+            display: block;
+        }
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".mobile-nav-toggle").click(function () {
+            $(".mon-menu-personnalise").toggleClass("active");
+            $(".navbar-mobile").toggleClass("active");
+        });
+    });
+</script>
+<div style=" width: 100%; background-color: #fff; z-index: 1000;">
+    <section id="topbar" class=" d-flex align-items-center">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-browser-chrome d-flex align-items-center"><a
+                        href="https://ent.univh2c.ma/uPortal/f/welcome/normal/render.uP">ENT</a></i>
+                <i class="bi bi-collection d-flex align-items-center ms-4"><a href="#">Bibliothèque</a></i>
+            </div>
+            <div class="contact-info d-flex align-items-center">
+
+                <i class="bi bi-contact d-flex align-items-center"> <a href="/en/contact/"> Contact</a></i>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Version PC -->
+            <a href="/" class="d-none d-lg-block">
+                <center><img src="{% static 'assets/img/logolog.png' %}" alt="ENSAM Logo"/></center>
+            </a>
+            <!-- Version mobile -->
+            <a href="/" class="d-block d-lg-none">
+                <center><img style="height: 50px;width: 200px;" src="{% static 'assets/img/logoENsam1.png' %}" alt="ENSAM Logo"/></center>
+            </a>
+        </div>
+    </div>
+
+
+    <header id="header" class="d-flex align-items-center"
+            style=" background-color:#1F5793;height:60px;">
+        <div class="container d-flex align-items-center justify-content-between">
+            <!--            <h1 class="logo"><a href="/"><img src="{% static 'assets/img/logoENsam1.png' %}" alt="ENSAM Logo"/></a></h1>-->
+            <nav id="navbar" class="navbar mobile-menu" style="margin-left:130px;">
+                <ul style="color: white" class="mon-menu-personnalise">
+                    {% show_menu 0 100 100 100 %}
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+
+
+        </div>
+
+
+    </header>
+
+
+</div>
+<script>
+    window.onscroll = function () {
+        myFunction()
+    };
+
+    var header = document.getElementById("header");
+    var sticky = header1.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header1.classList.add("fixed-top");
+        } else {
+            header1.classList.remove("fixed-top");
+        }
+    }
+</script>

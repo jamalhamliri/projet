@@ -1,0 +1,878 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+<style>
+    .demo {
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    .panel {
+        background: linear-gradient(to right, #2980b9, #2c3e50);
+        padding: 0;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.05), 0 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .panel .panel-heading {
+        padding: 20px 15px;
+        border-radius: 10px 10px 0 0;
+        margin: 0;
+    }
+
+    .panel .panel-heading .title {
+        color: #fff;
+        font-size: 28px;
+        font-weight: 500;
+        text-transform: capitalize;
+        line-height: 40px;
+        margin: 0;
+    }
+
+    .panel .panel-heading .btn {
+        color: rgba(255, 255, 255, 0.5);
+        background: transparent;
+        font-size: 16px;
+        text-transform: capitalize;
+        border: 2px solid #fff;
+        border-radius: 50px;
+        transition: all 0.3s ease 0s;
+    }
+
+    .panel .panel-heading .btn:hover {
+        color: #fff;
+        text-shadow: 3px 3px rgba(255, 255, 255, 0.2);
+    }
+
+    .panel .panel-heading .form-control {
+        color: #fff;
+        background-color: transparent;
+        width: 35%;
+        height: 40px;
+        border: 2px solid #fff;
+        border-radius: 20px;
+        display: inline-block;
+        transition: all 0.3s ease 0s;
+    }
+
+    .panel .panel-heading .form-control:focus {
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: none;
+        outline: none;
+    }
+
+    .panel .panel-heading .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .panel .panel-body {
+        padding: 0;
+    }
+
+    .panel .panel-body .table thead tr th {
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.2);
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding: 12px;
+        border: none;
+    }
+
+    .panel .panel-body .table tbody tr td {
+        color: #fff;
+        font-size: 15px;
+        padding: 10px 12px;
+        vertical-align: middle;
+        border: none;
+    }
+
+    .panel .panel-body .table tbody tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .panel .panel-body .table tbody .action-list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .panel .panel-body .table tbody .action-list li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .panel .panel-body .table tbody .action-list li a {
+        color: #fff;
+        font-size: 15px;
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease 0s;
+    }
+
+    .panel .panel-body .table tbody .action-list li a:hover {
+        text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .panel .panel-body .table tbody .action-list li a:before,
+    .panel .panel-body .table tbody .action-list li a:after {
+        content: attr(data-tip);
+        color: #fff;
+        background-color: #111;
+        font-size: 12px;
+        padding: 5px 7px;
+        border-radius: 4px;
+        text-transform: capitalize;
+        display: none;
+        transform: translateX(-50%);
+        position: absolute;
+        left: 50%;
+        top: -32px;
+        transition: all 0.3s ease 0s;
+    }
+
+    .panel .panel-body .table tbody .action-list li a:after {
+        content: '';
+        height: 15px;
+        width: 15px;
+        padding: 0;
+        border-radius: 0;
+        transform: translateX(-50%) rotate(45deg);
+        top: -18px;
+        z-index: -1;
+    }
+
+    .panel .panel-body .table tbody .action-list li a:hover:before,
+    .panel .panel-body .table tbody .action-list li a:hover:after {
+        display: block;
+    }
+
+    .panel .panel-footer {
+        color: #fff;
+        background-color: transparent;
+        padding: 15px;
+        border: none;
+    }
+
+    .panel .panel-footer .col {
+        line-height: 35px;
+    }
+
+    .pagination {
+        margin: 0;
+    }
+
+    .pagination li a {
+        color: #fff;
+        background-color: transparent;
+        border: 2px solid transparent;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        line-height: 31px;
+        width: 35px;
+        height: 35px;
+        padding: 0;
+        margin: 0 3px;
+        border-radius: 50px;
+        transition: all 0.3s ease 0s;
+    }
+
+    .pagination li a:hover {
+        color: #fff;
+        background-color: transparent;
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .pagination li a:focus,
+    .pagination li.active a,
+    .pagination li.active a:hover {
+        color: #fff;
+        background-color: transparent;
+        border-color: #fff;
+    }
+
+    .pagination li:first-child a,
+    .pagination li:last-child a {
+        border-radius: 50%;
+    }
+
+    @media only screen and (max-width: 767px) {
+        .panel .panel-heading .title {
+            text-align: center;
+            margin: 0 0 10px;
+        }
+
+        .panel .panel-heading .btn_group {
+            text-align: center;
+        }
+    }
+</style>
+
+<div class="tete">
+    <br>
+    <h1>Départements</h1>
+</div>
+
+
+<section id="team" class="team ">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <div class="card card-primary card-tabs">
+                    <ul class="nav nav-pills mb-3 custom-tab" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                    aria-selected="true">GÉNIE INDUSTRIEL
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-profile" type="button" role="tab"
+                                    aria-controls="pills-profile"
+                                    aria-selected="false">GÉNIE MÉCANIQUE
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-contact" type="button" role="tab"
+                                    aria-controls="pills-contact"
+                                    aria-selected="false">GÉNIE ELECTRIQUE
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-plus-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-plus" type="button" role="tab"
+                                    aria-controls="pills-plus"
+                                    aria-selected="false">GÉNIE INFORMATIQUE
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                             aria-labelledby="pills-home-tab">
+                            <div class="panel">
+                                <div class="panel-heading">
+
+                                </div>
+                                <div class="panel-body table-responsive">
+
+
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">NOM</th>
+                                            <th scope="col">PRÉNOM</th>
+                                            <th scope="col">E-Mail</th>
+                                            <th scope="col">Département</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+
+                                            <td>AQIL</td>
+                                            <td>Said</td>
+                                            <td>s_aqil@hotmail.fr</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>BASSIM</td>
+                                            <td>Mohamed</td>
+                                            <td>mohamedbassim39@gmail.com</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>EL KHAYMA</td>
+                                            <td>Rachid</td>
+                                            <td>rachidelkhayma@hotmail.fr</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>EN-NHAILI</td>
+                                            <td>Ahmed</td>
+                                            <td>ennhaili.ahmed@gmail.com</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>FANIDI</td>
+                                            <td>Omar</td>
+                                            <td>faomdo@yahoo.fr</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>FEDOUAKI</td>
+                                            <td>Faycal</td>
+                                            <td>fedouaki.faycal@gmail.com</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>JRIFI</td>
+                                            <td>Abderahim</td>
+                                            <td>jrifi@yahoo.fr</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>LAHYANI</td>
+                                            <td>Khalid</td>
+                                            <td>khalid.lahyani@gmail.com</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>MEDDAOUI</td>
+                                            <td>Anwar</td>
+                                            <td>anwar.meddaoui@etu.univh2c.ma</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>NOUI</td>
+                                            <td>Zineb</td>
+                                            <td>nouizineb38@gmail.com</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>OUAZZANI TOUHAMI</td>
+                                            <td>Naoual</td>
+                                            <td>nawalot@gmail.com</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>SEBTAOUI</td>
+                                            <td>FATIMA ZAHRA</td>
+                                            <td>sebtaouif@gmail.com</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>ZAKI</td>
+                                            <td>Abdelhamid</td>
+                                            <td>zaki.hamid@yahoo.fr</td>
+                                            <td>Département Génie Industriel</td>
+
+                                        </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                             aria-labelledby="pills-profile-tab">
+                            <div class="panel">
+                                <div class="panel-heading">
+
+                                </div>
+                                <div class="panel-body table-responsive">
+
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">NOM</th>
+                                            <th scope="col">PRÉNOM</th>
+                                            <th scope="col">E-Mail</th>
+                                            <th scope="col">Département</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>AIT EL FAQIH</td>
+                                            <td>Mohammed</td>
+                                            <td>m.aitelfqih@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>AKHIATE</td>
+                                            <td>Aziz</td>
+                                            <td>A.Akhiate@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>AZOUZ</td>
+                                            <td>Jaouad</td>
+                                            <td>azouzjaouad@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>BENMASSAOUD</td>
+                                            <td>Radouane</td>
+                                            <td>radouane.benmessaoud@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>EL HAOUZI</td>
+                                            <td>Ahmed</td>
+                                            <td>elhaouzi4@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>EL KEBCH</td>
+                                            <td>ALI</td>
+                                            <td>alibec_ma@yahoo.fr</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>ENNAJI</td>
+                                            <td>Mohamed</td>
+                                            <td>ennaji.moh@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>GUEMIMI</td>
+                                            <td>chafik</td>
+                                            <td>guemimichafik@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>HADDOU</td>
+                                            <td>El ghazi</td>
+                                            <td>hadghazi@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>KAMAL</td>
+                                            <td>Abdellatif</td>
+                                            <td>abdellatif.et.kamal@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>KHATIB</td>
+                                            <td>Hamza</td>
+                                            <td>hmz.khatib@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>KISSI</td>
+                                            <td>Benaissa</td>
+                                            <td>kissifst@yahoo.fr</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>MERROUN</td>
+                                            <td>Ossama</td>
+                                            <td>meroun.ossama@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>MHADA</td>
+                                            <td>Khadija</td>
+                                            <td>khadijamhada1@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>SAKIM</td>
+                                            <td>Anas</td>
+                                            <td>sakim.anas@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>TIMESLI</td>
+                                            <td>Abdelaziz</td>
+                                            <td>abdelaziz.timesli@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>SOBHI</td>
+                                            <td>Said</td>
+                                            <td>sobhi.Said1@gmail.com</td>
+                                            <td>Deppartement Génie Mécanique</td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                            <div class="panel">
+                                <div class="panel-heading">
+
+                                </div>
+                                <div class="panel-body table-responsive">
+
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">NOM</th>
+                                            <th scope="col">PRÉNOM</th>
+                                            <th scope="col">E-Mail</th>
+                                            <th scope="col">Département</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+
+                                            <td>AIT EL MAHJOUB</td>
+                                            <td>Abdelhafid</td>
+                                            <td>aitelmahjoub@gmail.com</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>BABA</td>
+                                            <td>Youssef</td>
+                                            <td>youssefbaba@gmail.com</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>BAGHOURI</td>
+                                            <td>Mostafa</td>
+                                            <td>baghouri.mostafa@gmail.com</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>BENTARLA</td>
+                                            <td>LAHSEN</td>
+                                            <td>lahssen.bentarla@gmail.com</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>BOUNOUAR</td>
+                                            <td>Said</td>
+                                            <td>bounouar.said@gmail.com</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>ELAFIA</td>
+                                            <td>Aziz</td>
+                                            <td>azelafia@gmail.com</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>ESAADAOUI</td>
+                                            <td>Alami</td>
+                                            <td>alami70@yahoo.fr</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>HAMLICH</td>
+                                            <td>Mohamed</td>
+                                            <td>moha.hamlich@gmail.com</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>MACHKOUR</td>
+                                            <td>Nadia</td>
+                                            <td>nadia.machkour@gmail.com</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>MAJDOUL</td>
+                                            <td>Radouane</td>
+                                            <td>r.majdoul@gmail.com</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>MOUTCHOU</td>
+                                            <td>Mohamed</td>
+                                            <td>m.moutchou@yahoo.fr</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>OUACHTOUK</td>
+                                            <td>Ilyas</td>
+                                            <td>ouachtouk@gmail.com</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>RABBAH</td>
+                                            <td>Nabila</td>
+                                            <td>nabila_rabbah@yahoo.fr</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>TOUATI</td>
+                                            <td>Abdelwahed</td>
+                                            <td>touati_2010@hotmail.com</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>ZAZ</td>
+                                            <td>GHITA</td>
+                                            <td>zaz.ghita@ensam-casa.ma</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>ZEGRARI</td>
+                                            <td>Mourad</td>
+                                            <td>mourad_zegrari@yahoo.fr</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>EL MOUMNI</td>
+                                            <td>SOUFIANE</td>
+                                            <td>SOUFIANEELMOUMNI@GMAIL.COM</td>
+                                            <td>Département Génie Électrique</td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-plus" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                            <div class="panel">
+                                <div class="panel-heading">
+
+                                </div>
+                                <div class="panel-body table-responsive">
+
+
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">NOM</th>
+                                            <th scope="col">PRÉNOM</th>
+                                            <th scope="col">E-Mail</th>
+                                            <th scope="col">Département</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>AZMI</td>
+                                            <td>Mohammed</td>
+                                            <td>mohamed.azmi@ensam-casa.ma</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>BAHASSINE</td>
+                                            <td>Said</td>
+                                            <td>bsaid4@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>BAHNASSE</td>
+                                            <td>Ayoub</td>
+                                            <td>a.bahnasse@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>CHERGUI</td>
+                                            <td>Adil</td>
+                                            <td>adil.chergui.fstm@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>EL FAQUIH</td>
+                                            <td>Loubna</td>
+                                            <td>elfaquih.loubna@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>EL KIHAL</td>
+                                            <td>Fadwa</td>
+                                            <td>fadwa.elkihal@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>GUELZIM</td>
+                                            <td>Ibrahim</td>
+                                            <td>ib.guelzim@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>HAIN</td>
+                                            <td>Mustapha</td>
+                                            <td>infohain@yahoo.fr</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>HIRCHOUA</td>
+                                            <td>Badr</td>
+                                            <td>badr.hirchoua@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>KAMOUSS</td>
+                                            <td>Abdessamad</td>
+                                            <td>akamouss@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>LAARAJ</td>
+                                            <td>Mohammed</td>
+                                            <td>laaraj@yahoo.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>LAZAIZ</td>
+                                            <td>SAMIH</td>
+                                            <td>samih.lazaiz@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>MAKRI</td>
+                                            <td>AZIZ</td>
+                                            <td>LMAKRIAZIZ@GMAIL.COM</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>MOUTACHAOUIK</td>
+                                            <td>Hicham</td>
+                                            <td>gotohicham@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>OUARTASSI</td>
+                                            <td>BAJIL</td>
+                                            <td>bajil.ouartassi@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>SEKKATE</td>
+                                            <td>Sara</td>
+                                            <td>sarasekkate@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>TAHIR</td>
+                                            <td>Youssef</td>
+                                            <td>ytahirensamcasa@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>TSOULI</td>
+                                            <td>Azzeddine</td>
+                                            <td>azzeddine.tsouli@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>ZAKRANI</td>
+                                            <td>Abdelali</td>
+                                            <td>zakrani@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>AOUHASSI</td>
+                                            <td>Sarah</td>
+                                            <td>aouhassi.sarah@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>MANDYLY</td>
+                                            <td>Youssef</td>
+                                            <td>youssefmandyly@gmail.com</td>
+                                            <td>Deppartement Génie Informatique</td>
+                                        </tr>
+                                        </tbody>
+
+
+                                    </table>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+{% endblock %}

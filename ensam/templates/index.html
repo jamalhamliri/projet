@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2.0/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.min.js"></script>
+    <link href="{% static 'assets/css/index.css' %}" rel="stylesheet">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for slide in slide %}
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img style="height:600px;width:100%;" src="{{ slide.image_url }}" class="d-block w-100"
+                         alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>{{ slide.title }}</h3>
+                        <p></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <button style="width: 50px;height: 50px;top:50%;" class="carousel-control-prev btn-primary" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev">
+            <span  class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+        </button>
+        <button style="width: 50px;height: 50px;top:50%;"  class="carousel-control-next btn-primary" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next">
+            <span  class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+        </button>
+    </div>
+    <div class="title">
+        <hr style="color: #1F5793; width: 10%; height:1%; display: inline-block;margin-right: 10px;margin-bottom: 0px;  ">
+        <h1 class="titlee">NOS FORMATIONS</h1>
+        <hr style="color: #1F5793; width: 10%;height:1%; display: inline-block;margin-left: 10px;margin-bottom: 0px; ">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <strong>
+                    <center style="color:#1F5793;font-size: 30px; font-family: 'League Spartan', sans-serif;">Formation
+                        Initiale
+                    </center>
+                </strong>
+            </div>
+            <div class="col">
+                <strong>
+                    <center style="color:#1F5793;font-size: 30px; font-family: 'League Spartan', sans-serif;">Formation
+                        Continue
+                    </center>
+                </strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <select class="form-select"
+                        onchange="redirectToURL(this)">
+                    <option value="#"> Cycle Préparatoire</option>
+                    <option value="{% url 'api' %}">Années Préparatoires
+                        Intégrées (API): Maths, Physique & Technologie
+                    </option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" aria-label="Default select example" onchange="redirectToURL(this)">
+                    <option value="#"> Licence d'université</option>
+                    <option value="{% url 'aise' %}">Automatismes
+                        industriels & systèmes électriques
+                    </option>
+                    <option value="{% url 'dlss' %}">Développement
+                        Logiciel et Sécurité des systèmes
+                    </option>
+                    <option value="{% url 'idami' %}">Ingénierie en
+                        diagnostic automobile et maintenance industrielle
+                    </option>
+                    <option value="{% url 'csaa' %}">Conception de
+                        systèmes automobiles et aéronautiques
+                    </option>
+                    <option value="{% url 'gc' %}">Génie Civil</option>
+                    <option value="{% url 'qse' %}">Qualité sécurité
+                        environnement
+                    </option>
+                    <option value="{% url 'msi' %}">Management des
+                        systemes industriels
+                    </option>
+                    <option value="{% url 'dwm' %}">Développement web
+                        et mobile
+                    </option>
+                    <option value="{% url 'di' %}">Digitalisation
+                        industrielle
+                    </option>
+                    <option value="{% url 'tts' %}">Technologies de
+                        traitement des surfaces
+                    </option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <select class="form-select" aria-label="Default select example" onchange="redirectToURL(this)">
+                    <option value="#"> Cycle Ingénieur</option>
+                    <option value="{% url 'ge' %}">Génie
+                        Électromécanique
+                    </option>
+                    <option value="{% url 'gm' %}">Génie
+                        Mécanique
+                    </option>
+                    <option value="{% url 'mse' %}">Management
+                        des Systèmes Électriques Intelligents
+                    </option>
+                    <option value="{% url 'iagi' %}">Intelligence
+                        Artificielle et Génie Informatique
+                    </option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" aria-label="Default select example" onchange="redirectToURL(this)">
+                    <option value="#"> Master d'université</option>
+                    <option value="{% url 'cime' %}">Contrôle industriel & management de l’énergie
+                    </option>
+                    <option value="{% url 'mitd' %}">Management
+                        industriel et transformation digitale
+                    </option>
+                    <option value="{% url 'gcbcm' %}">Génie civil, bâtiment et construction métallique
+                    </option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <select class="form-select"
+                        onchange="redirectToURL(this)">
+                    <option value="#"> Master</option>
+                    <option>Technologies immerssives
+                    </option>
+                    <option>Ingénierie digitale pour les métiers de la santé
+                    </option>
+                    <option>Big data et internet des objets</option>
+                </select>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <script>
+        function redirectToURL(select) {
+            var selectedValue = select.options[select.selectedIndex].value;
+            if (selectedValue !== "#") {
+                window.location.href = selectedValue;
+            }
+        }
+    </script>
+    <br><br>
+    <div style="background-color:#1F5793;">
+        <div style="text-align: center; margin-bottom: 10px;">
+            <hr style="color: white; width: 10%; height:1%; display: inline-block;margin-right: 10px;margin-bottom: 0px; ">
+            <h1 style="color: white; display: inline-block;">ACTUALITES</h1>
+            <hr style="color: white; width: 10%;height:1%; display: inline-block;margin-left: 10px;margin-bottom: 0px; ">
+        </div>
+        {% include 'index/com_off.html' %}
+        {% include 'index/aux_etudiants.html' %}
+    </div>
+    <div class="title">
+        <hr style="color: #1F5793; width: 10%; height:1%; display: inline-block;margin-right: 10px;margin-bottom: 0px;  ">
+        <h1 class="titlee">EVENEMENTS</h1>
+        <hr style="color: #1F5793; width: 10%;height:1%; display: inline-block;margin-left: 10px;margin-bottom: 0px; ">
+    </div>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for event in events %}
+                <div class="carousel-item active">
+                    <div class="row " style="">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="card-body" style="height:300px;color:#1F5793;">
+                                    <center>
+                                        <h3 style="font-size: 40px;">{{ event.date_event|date:"D" }}</h3>
+                                        <h1 style="font-size: 80px;">{{ event.date_event|date:"d" }}</h1>
+                                        <p class="card-text"
+                                           style="font-size: 40px;">{{ event.date_event|date:"F Y" }}</p>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="card-body" style="height:300px;background-color:#1F5793;color:white;">
+                                    <center>
+                                        <h1>{{ event.title }}</h1>
+                                        <br>
+                                        <h6>{{ event.description }}</h6>
+                                        <p>{{ event.duree }}</p>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <button style="width: 50px;height: 50px;top:50%;"  class="carousel-control-prev btn-primary" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon btn-primary" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+        </button>
+        <button style="width: 50px;height: 50px;top:50%;"  class="carousel-control-next btn-primary" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon btn-primary" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+        </button>
+    </div>
+    {% include 'index/agenda.html' %}
+    <div class="title">
+        <hr style="color: #1F5793; width: 10%; height:1%; display: inline-block;margin-right: 10px;margin-bottom: 0px;  ">
+        <h1 class="titlee">MOT DU DIRECTEUR</h1>
+        <hr style="color: #1F5793; width: 10%;height:1%; display: inline-block;margin-left: 10px;margin-bottom: 0px; ">
+    </div>
+    <div class="row" style="background-color:#1F5793;">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-7">
+            <br>
+            <h2 style="color: white">
+                <strong style="font-size: 30px;">Professeur Abdelmajid Badri</strong>
+                <br>Directeur de l'ENSAM-Casablanca
+            </h2>
+            <p style="color: white;font-size: 20px;">
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Depuis sa création en 2011, l'ENSAM-Casablanca s'est efforcée de joindre
+                l'efficacité et la
+                qualité au succès, établissant ainsi sa réputation en tant que grande école
+                d'ingénieurs au
+                Royaume du Maroc. Notre école est un établissement de l'Université Hassan II de
+                Casablanca
+                et a
+                une mission claire : former une nouvelle génération de leaders engagés pour les
+                métiers
+                d'aujourd'hui et de demain, fournissant une formation de qualité tournée vers
+                l'innovation.
+                <i
+                        class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+        </div>
+        <div class="col-lg-4"><img style="height: 400px;width: 400px;margin-top:-60px;margin-left:50px;" alt=""
+                                   src="{% static 'assets/img/dir.png' %}">
+        </div>
+    </div>
+    <div class="title">
+        <hr style="color: #1F5793; width: 10%; height:1%; display: inline-block;margin-right: 10px;margin-bottom: 0px;  ">
+        <h1 class="titlee">ENSAM CASABLANCA EN CHIFFRES</h1>
+        <hr style="color: #1F5793; width: 10%;height:1%; display: inline-block;margin-left: 10px;margin-bottom: 0px; ">
+    </div>
+    {% include 'index/static.html' %}
+    <div class="title">
+        <hr style="color: #1F5793; width: 10%; height:1%; display: inline-block;margin-right: 10px;margin-bottom: 0px;  ">
+        <h1 class="titlee">NOS PARTENAIRES</h1>
+        <hr style="color: #1F5793; width: 10%;height:1%; display: inline-block;margin-left: 10px;margin-bottom: 0px; ">
+    </div>
+    {% include 'index/part.html' %}
+    <br>
+{% endblock %}

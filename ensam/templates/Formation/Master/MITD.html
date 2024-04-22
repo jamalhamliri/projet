@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+
+<div class="tete">
+    <br>
+    <h1>Management industriel et transformation digitale</h1>
+</div>
+
+<section id="team" class="team ">
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <div class="card card-primary card-tabs">
+                    <ul class="nav nav-pills mb-3 custom-tab" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                    aria-selected="true">Objectifs et Débouchés
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-profile" type="button" role="tab"
+                                    aria-controls="pills-profile"
+                                    aria-selected="false">Conditions d'admission
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-contact" type="button" role="tab"
+                                    aria-controls="pills-contact"
+                                    aria-selected="false">Contact
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-plus-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-plus" type="button" role="tab"
+                                    aria-controls="pills-plus"
+                                    aria-selected="false">
+                                Brochure
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                             aria-labelledby="pills-home-tab">
+                            <div style="margin-left: 20px;">
+                                <strong><U>Objectifs de la formation</U></strong>
+                                <br>
+
+                                Ce master dispense une formation solide en industriel avec un accent sur la production
+                                et la logistique, qui sont actuellement le noyau de toute organisation industrielle
+                                publique ou privée. En effet, au-delà de la maîtrise des outils, cette formation entend
+                                également développer une ouverture d’esprit et une capacité de réflexion indispensables
+                                pour exercer des métiers en constante évolution.
+
+                                <br>
+                                <strong><U>Débouchés</U></strong>
+                                <br>
+                                <ul>
+                                    <li>
+
+                                         Responsable Production (méthode et industrialisation, maintenance, ...)
+                                    </li>
+                                    <li>
+                                         Responsable de projets
+                                    </li>
+                                    <li>
+                                         Responsable Logistique, Achats
+                                    </li>
+                                    <li>
+                                         Manager d'exploitation
+                                    </li>
+                                    <li>
+                                         Responsable qualité
+                                    </li>
+                                    <li>
+                                         Gestionnaire de stocks
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                             aria-labelledby="pills-profile-tab">
+                            <div style="margin-left: 20px;">
+                                <strong><U>Admission</U></strong>
+                                <br>
+                                L’accès est ouvert à tous les titulaires d’un Bac+3 (Licence, Maîtrise, ...) ou tout
+                                diplôme reconnu équivalent. Les candidats munis du dossier d’inscription passent
+                                un entretien de séléction pour valider leur candidature.
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                            <div style="margin-left: 20px;">
+                                <h2>Responsable de la formation:</h2>
+                                <strong>Pr. Hain Mustapha</strong><br>
+                                E-mail: mmi.ensam@gmail.com
+                                <p>ENSAM:<br>
+                                    Adresse de l’école: 150 Avenue Nile Sidi Othman, Casablanca
+                                    N° de Téléphone: 05 22 56 42 22</p>
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-plus" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                            <object data="{% static 'assets/pdf/formation/master/ms_management_industriel_22.pdf' %}"
+                                    type="application/pdf"
+                                    width="100%"
+                                    height="800px">
+                                <p>Impossible d'afficher le PDF. Veuillez <a
+                                        href="{% static 'assets/pdf/formation/master/ms_management_industriel_22.pdf' %}">télécharger
+                                    le
+                                    fichier</a> pour le visualiser.</p>
+                            </object>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

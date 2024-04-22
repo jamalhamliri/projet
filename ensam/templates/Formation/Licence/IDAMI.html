@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+
+<div class="tete">
+    <br>
+    <h1>Ingénierie en diagnostic automobile et maintenance industrielle</h1>
+</div>
+
+<section id="team" class="team ">
+
+
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <div class="card card-primary card-tabs">
+                    <ul class="nav nav-pills mb-3 custom-tab" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                    aria-selected="true">Objectifs et Débouchés
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-profile" type="button" role="tab"
+                                    aria-controls="pills-profile"
+                                    aria-selected="false">Conditions d'admission
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-contact" type="button" role="tab"
+                                    aria-controls="pills-contact"
+                                    aria-selected="false">Contact
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-plus-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-plus" type="button" role="tab"
+                                    aria-controls="pills-plus"
+                                    aria-selected="false">
+                                Brochure
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                             aria-labelledby="pills-home-tab">
+                            <p style="margin-left: 20px;">
+                                <strong><U>Objectifs de la formation</U></strong>
+                                <br>
+                                La licence professionnelle d’université d’ingénierie en diagnostic automobile et
+                                maintenance industrielle (IDAMI) a pour objectifs de former un profil qui repond aux
+                                besoins en termes de compétences des entreprises qui opèrent dans le secteur automobile
+                                . Il sera capable de faire le diagnostic électricité-électronique et mécanique. Il
+                                intervient dans toutes les activités de maintenance préventive et corrective des
+                                véhicules ainsi que d’assurer l’amélioration et la maintenance des équipements des
+                                lignes de production. En plus de ces compétences techniques, le futur lauréat doit être
+                                un bon communicant et un bon manager afin de coordonner et de gérer des équipes.
+
+
+                                <br>
+                                <strong><U>Débouchés</U></strong>
+                                <br>
+                                Les lauréats de cette formation peuvent accéder aux différents domaines d’activité tels
+                                que:
+                            <ul>
+                                <li>
+                                    Cadre dans l’industrie automobile, aéronautique, ferroviaire, et les industries de
+                                    transformation et de production .
+                                </li>
+                                <li>
+                                    Cadre dans l’industrie agro-alimentaire et pharmaceutique, bureaux d’études, de
+                                    contrôle et de conseil, etc...
+                                </li>
+                                <li>
+                                    Les services de maintenance des flottes de véhicules privés, industriels et
+                                    agricoles.
+                                </li>
+                                <li>
+                                    Les plates-formes d’assistance constructeur ou équipementiers.
+                                </li>
+                            </ul>
+
+
+                            </p>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                             aria-labelledby="pills-profile-tab">
+                            <p style="margin-left: 20px;">
+                                <strong><U>Admission</U></strong>
+                                <br>
+                            <ul>
+                                <li>
+                                     Techniciens de niveau BAC+2 en poste
+                                </li>
+                                <li>
+                                     Techniciens issus de la formation professionnelle (BAC+2)
+                                </li>
+                                <li>
+                                     Étudiants ayant un DEUG, DEUST, DEUP, BTS ou DUT
+                                </li>
+                                <li>
+                                     Tout autre étudiant ayant un niveau équivalent ou plus
+                                </li>
+                            </ul>
+
+
+                            </p>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                            <div style="margin-left: 20px;">
+                                <h3>Responsable de la formation:</h3>
+
+
+                                <strong> Pr. AKHIAT AZIZ</strong>
+                                <p>E-mail:  licence.idami@gmail.com</p>
+
+
+                                <p>ENSAM:<br>
+                                    Adresse de l’école: 150 Avenue Nile Sidi Othman, Casablanca
+                                    N° de Téléphone: 05 22 56 42 22</p>
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-plus" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                             <object data="{% static 'assets/pdf/formation/licence/diagnostic.pdf' %}"
+                                    type="application/pdf"
+                                    width="100%"
+                                    height="800px">
+                                <p>Impossible d'afficher le PDF. Veuillez <a
+                                        href="{% static 'assets/pdf/formation/licence/diagnostic.pdf' %}">télécharger
+                                    le
+                                    fichier</a> pour le visualiser.</p>
+                            </object>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

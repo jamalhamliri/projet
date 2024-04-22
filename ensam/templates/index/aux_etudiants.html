@@ -1,0 +1,33 @@
+{% load static %}
+
+<div style="height: 400px;  " class="row">
+    <div class="col-3">
+        <br>
+
+        <div style="background-color: white;height: 300px;margin-left: 20px;margin-right: 20px;" class="carousel-cell">
+
+
+            <br><br><br>
+            <center><h1 style="color:#1F5793;">Avis<br> aux étudiants</h1></center>
+
+
+        </div>
+    </div>
+    <div class="col-9">
+
+        <div style="background:transparent; " class="carousel-wrapper ">
+
+            <div class="carousel" data-flickity='{ "initialIndex": 2 }'>
+                {% for avi in avis %}
+                <div style="background-color: white;" class="carousel-cell">
+                    <img src="{{avi.image_url}}"/>
+                    <center><strong>{{ avi.publication_date }}</strong></center>
+                    <h6>{{avi.title }}</h6>
+                    <a class="btn btn-primary more" href="{%url 'afficher' avi.id %}">Afficher</a>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>

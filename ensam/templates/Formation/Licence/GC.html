@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+
+<div class="tete">
+    <br>
+    <h1>Génie Civil</h1>
+</div>
+
+<section id="team" class="team ">
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <div class="card card-primary card-tabs">
+                    <ul class="nav nav-pills mb-3 custom-tab" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                    aria-selected="true">Objectifs et Débouchés
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-profile" type="button" role="tab"
+                                    aria-controls="pills-profile"
+                                    aria-selected="false">Conditions d'admission
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-contact" type="button" role="tab"
+                                    aria-controls="pills-contact"
+                                    aria-selected="false">Contact
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-plus-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-plus" type="button" role="tab"
+                                    aria-controls="pills-plus"
+                                    aria-selected="false">
+                                Brochure
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                             aria-labelledby="pills-home-tab">
+                            <p style="margin-left: 20px;">
+                                <strong><U>Objectifs de la formation</U></strong>
+                                <br>
+                                Le principal objectif visé par la formation est d’offrir aux étudiants les bases solides
+                                nécessaires et une spécialisation de premier niveau en génie civil pour répondre aux
+                                exigences des entreprises de ce secteur. Afin d’assurer cette mission, la présente
+                                formation permettra aux étudiants de :
+                            <ul>
+                                <li>
+                                    • Maîtriser les outils, les méthodes et les techniques du génie civil ;
+                                </li>
+                                <li
+                                        • Appréhender l’analyse systémique des problèmes du génie civil en mettant
+                                        l’accent sur
+                                        la modélisation et la simulation.
+                                </li></ul>
+
+
+                            <br>
+                            <strong><U>Débouchés</U></strong>
+                            <br>
+                            <ul>
+                                <li>
+                                    • Responsable de BTP,
+                                </li>
+                                <li>
+                                    • Chef de chantier,
+                                </li>
+                                <li>
+                                    • Conducteur de travaux,
+                                </li>
+                                <li>
+                                    • Réalisation de projets en BTP :
+                                </li>
+                                <li>
+                                    • Ouvrage d’arts ;
+                                </li>
+                                <li>
+                                    • Géotechnique ;
+                                </li>
+                                <li>
+                                    • Construction navale ;
+                                </li>
+                                <li>
+                                    • Infrastructures et ferroviaires ;
+                                </li>
+                                <li>
+                                    • Environnement.
+                                </li>
+                            </ul>
+
+
+                            </p>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                             aria-labelledby="pills-profile-tab">
+                            <div style="margin-left: 20px;">
+                                <strong><U>Admission</U></strong>
+                                <br>
+                                La formation se déroule sur deux semestres (une année) les samedis et dimanches au sein
+                                des locaux de l’École Nationale Supérieure d’Arts et Métiers de Casablanca.
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                            <div style="margin-left: 20px;">
+                                <h3>Responsable de la formation:</h3>
+
+                                <p>E-mail: gc.ensam@gmail.com</p>
+
+
+                                <p>ENSAM:<br>
+                                    Adresse de l’école: 150 Avenue Nile Sidi Othman, Casablanca
+                                    N° de Téléphone: 05 22 56 42 22</p>
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-plus" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                            <object data="{% static 'assets/pdf/formation/licence/Genie_Civil.pdf' %}"
+                                    type="application/pdf"
+                                    width="100%"
+                                    height="800px">
+                                <p>Impossible d'afficher le PDF. Veuillez <a
+                                        href="{% static 'assets/pdf/formation/licence/Genie_Civil.pdf' %}">télécharger
+                                    le
+                                    fichier</a> pour le visualiser.</p>
+                            </object>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+<div class="tete">
+    <br>
+    <h1>{% page_attribute "page_title" %}</h1>
+</div>
+<section class="blog">
+    <div style="text-align: center; margin-bottom: 10px;">
+        <hr style="color: #1F5793; width: 10%; height:1%; display: inline-block;margin-right: 10px;margin-bottom: 0px;  ">
+        <h1 style="color: #1F5793; display: inline-block;">{% page_attribute "page_title" %}</h1>
+        <hr style="color: #1F5793; width: 10%;height:1%; display: inline-block;margin-left: 10px;margin-bottom: 0px; ">
+    </div>
+    <h2 style="color: #1F5793; margin-left:110px;">Derniers {% page_attribute "page_title" %}</h2>
+    {% for avi in page_obj %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+            <img src="{{avi.image_url}}" alt=""
+                 class="img-fluid"/>
+        </div>
+        <div class="col-5 bg-white d-flex flex-column">
+
+            <div class="mb-auto">
+                <br>
+                <br>
+                {{ avi.publication_date|date:"d F Y"}}
+                <h1 class="card-title" style="color: #1F5793;">{{avi.title}}</h1>
+            </div>
+
+            <div class="d-grid gap-2">
+                <a class="btn btn-primary" href="{% url 'afficher' avi.id %}">Afficher</a>
+            </div>
+        </div>
+
+
+        <div class="col-1"></div>
+    </div>
+    <br>
+    {% endfor %}
+    <div class="d-flex justify-content-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link"
+                                         href="?pagee={{ page_obj.previous_page_number }}"><<</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled"><span class="page-link"><<</span></li>
+                {% endif %}
+                <!-- Afficher les numéros de page -->
+                {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                <li class="page-item active" aria-current="pagee"><span class="page-link">{{ num }}</span></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?pagee={{ num }}">{{ num }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?pagee={{ page_obj.paginator.num_pages }}">>></a>
+                </li>
+                {% else %}
+                <li class="page-item disabled"><span class="page-link">>></span></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</section>
+{% endblock %}

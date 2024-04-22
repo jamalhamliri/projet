@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+<div class="tete">
+    <br>
+    <h1>Demandes des documents</h1>
+</div>
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-lg-10 entries">
+        <style>
+            * {
+                font-family: 'League Spartan', sans-serif;
+            }
+
+            .get-in-touch {
+                max-width: 800px;
+                margin: auto;
+                position: relative;
+
+            }
+
+            .get-in-touch .title {
+                text-align: center;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-size: 3.2em;
+                line-height: 48px;
+                padding-bottom: 48px;
+                color: #5543ca;
+                background: #5543ca;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+            }
+
+            .contact-form .form-field {
+                position: relative;
+                margin: 32px 0;
+            }
+
+            .contact-form .input-text {
+                display: block;
+                width: 100%;
+                height: 36px;
+                border-width: 0 0 2px 0;
+                border-color: #1F5793;
+                font-size: 18px;
+                line-height: 26px;
+                font-weight: 400;
+            }
+
+            .contact-form .input-text:focus {
+                outline: none;
+            }
+
+            .contact-form .input-text:focus + .label,
+            .contact-form .input-text.not-empty + .label {
+                -webkit-transform: translateY(-24px);
+                transform: translateY(-24px);
+            }
+
+            .contact-form .label {
+                position: absolute;
+                left: 20px;
+                bottom: 11px;
+                font-size: 18px;
+                line-height: 26px;
+                font-weight: 400;
+                color: #1F5793;
+                cursor: text;
+                transition: -webkit-transform .2s ease-in-out;
+                transition: transform .2s ease-in-out;
+                transition: transform .2s ease-in-out,
+                -webkit-transform .2s ease-in-out;
+            }
+
+            .contact-form .submit-btn {
+                display: inline-block;
+                background-color: #1F5793;
+                /*background-image: linear-gradient(125deg, #a72879, #064497);*/
+                color: #fff;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 16px;
+                padding: 8px 16px;
+                border: none;
+                width: 200px;
+                cursor: pointer;
+            }
+
+            /* Styles pour le select */
+            .contact-form select {
+                display: block;
+                width: 100%;
+                height: 36px;
+                border: 2px solid #1F5793;
+                font-size: 18px;
+                line-height: 26px;
+                font-weight: 400;
+                appearance: none; /* Cela masque les styles de sélection par défaut du navigateur */
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                padding: 0 10px;
+                background-image: linear-gradient(45deg, transparent 50%, #5543ca 50%);
+                /*linear-gradient(135deg, #5543ca 50%, transparent 50%);*/
+                background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) 1em;
+                background-size: 5px 5px, 5px 5px;
+                background-repeat: no-repeat;
+                cursor: pointer;
+            }
+
+            .contact-form select:focus {
+                outline: none;
+            }
+
+            /* Styles pour le label du select */
+            .contact-form select + .label {
+                position: absolute;
+                left: 20px;
+                bottom: 11px;
+                font-size: 18px;
+                line-height: 26px;
+                font-weight: 400;
+                color: #5543ca;
+                cursor: text;
+                transition: -webkit-transform .2s ease-in-out;
+                transition: transform .2s ease-in-out;
+                transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+            }
+
+            .contact-form select:focus + .label,
+            .contact-form select.not-empty + .label {
+                -webkit-transform: translateY(-24px);
+                transform: translateY(-24px);
+            }
+
+
+        </style>
+        <!------ Include the above in your HEAD tag ---------->
+
+        <section class="get-in-touch">
+            <h1 class="title"><img style="height: 200px;width: 200px;"
+                                   src="http://www.ensam-casa.ma/assets/images/hat.svg"></h1>
+            <center><p style="font-size:20px;">Votre demande sera traitée dans 48H</p></center>
+            <form class="contact-form row">
+                <center><h4>VOS INFORMATIONS PERSONNELS</h4></center>
+                <div class="form-field col-lg-6">
+                    <input id="name" class="input-text js-input" type="text" required>
+                    <label class="label" for="name">Nom</label>
+                </div>
+                <div class="form-field col-lg-6 ">
+                    <input id="prenom" class="input-text js-input" type="text" required>
+                    <label class="label" for="prenom">Prenom</label>
+                </div>
+                <div class="form-field col-lg-6 ">
+                    <input id="company" class="input-text js-input" type="text" required>
+                    <label class="label" for="company">CNE</label>
+                </div>
+                <div class="form-field col-lg-6 ">
+                    <input id="phone" class="input-text js-input" type="text" required>
+                    <label class="label" for="phone">N° Apogee</label>
+                </div>
+
+                <div class="form-field col-lg-6">
+
+                    <select id="niveau" name="niveau">
+                        <option value="" selected="">-- Choisissez votre niveau --</option>
+                        <option value="1ère années préparatoires intégrées">1ère années préparatoires intégrées
+                        </option>
+                        <option value="2ème années préparatoires intégrées">2ème années préparatoires intégrées
+                        </option>
+                        <option value="1ère année du Cycle ingénieur">1ère année du Cycle ingénieur</option>
+                        <option value="2ème année du Cycle ingénieur">2ème année du Cycle ingénieur</option>
+                        <option value="3ème année du Cycle ingénieur">3ème année du Cycle ingénieur</option>
+                        <option value="2ème année Master">1ème année Master</option>
+                        <option value="2ème année Master">2ème année Master</option>
+                    </select>
+                </div>
+                <div class="form-field col-lg-6">
+
+                    <select id="filier" name="filier">
+                        <option value="" selected="">-- Choisissez votre filiére --</option>
+                        <option value="Génie Electro-Mécanique">Génie Electro-Mécanique</option>
+                        <option value="Génie mécanique">Génie mécanique</option>
+                        <option value="Génie industriel">Génie industriel</option>
+                        <!--<option value="Génie Industriel  Option:Management des Systèmes Industriels">Génie Industriel  Option:Management des Systèmes Industriels</option>-->
+                        <option value="Management des Systèmes Industriels">Management des Systèmes Industriels
+                        </option>
+                        <option value="MANAGEMENT DES SYSTEMES ELECTRIQUES INTELLIGENTS">MANAGEMENT DES SYSTEMES
+                            ELECTRIQUES INTELLIGENTS
+                        </option>
+                        <option value="Intelligence artificielle et génie informatique">Intelligence
+                            artificielle et génie informatique
+                        </option>
+                        <option value="Big data et internet des objets">Big data et internet des objets</option>
+                    </select>
+                </div>
+                <div class="form-field col-lg-6">
+                    <select id="document" name="document">
+                        <option value="" selected="">-- Choisissez votre type de document --</option>
+                        <option value="Convention de stage">Convention de stage</option>
+                        <option value="Demande de stage">Demande de stage</option>
+                        <option value="Certificat de scolarité" id="crt_scolartie_two" style="display: block;">
+                            Certificat de scolarité
+                        </option>
+                        <option value="Demande de relevé de notes">Demande de relevé de notes</option>
+                        <option value="Demande de consultation de copie examen">Demande de consultation de
+                            copie d'examen
+                        </option>
+                        <option value="Lettre de recommandation de stage">Lettre de recommandation de stage
+                        </option>
+                        <option value="Attestation de poursuite des études"> Attestation de poursuite des études
+                        </option>
+                        <option value="DEMANDE DE RETRAIT DEFINITIF">DEMANDE DE RETRAIT DEFINITIF</option>
+                        <option value="DEMANDE DE RETRAIT PROVISOIOR">DEMANDE DE RETRAIT PROVISOIOR</option>
+                        <option value="Demande de réservation espaces">Demande de réservation d'espaces et de
+                            matériels
+                        </option>
+                        <option value="Demande de réservation des terrains de sport">Demande de réservation des
+                            terrains de sport
+                        </option>
+                        <option value="Demande autorisation visite entreprise">Demande d'autorisation
+                            -visite d'entreprise-
+                        </option>
+                        <option value="Demande autorisation -activité parascolaire"> Demande d'autorisation
+                            -activité parascolaire-
+                        </option>
+                        <option value="Attestation de bourse"> Attestation de bourse</option>
+                        <option value="Décharge définitif"> Décharge définitif</option>
+                        <option value="Fiche Orientation 1ère Année Cycle Ingénieur"> Fiche d’Orientation 1ère
+                            Année Cycle Ingénieur
+                        </option>
+                        <option value="Formulaire de Choix Option 2ème Année Cycle Ingénieur"> Formulaire
+                            de Choix d’Option Filiére
+                        </option>
+                    </select>
+                </div>
+                <div class="form-field col-lg-6">
+                    <input id="year" class="input-text js-input" type="text" required>
+                    <label class="label" for="company">Année</label>
+                </div>
+                <div class="form-field col-lg-12">
+                    <center><input class="submit-btn" type="submit" value="Confirmer"></center>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="col-1"></div>
+
+</div>
+
+{% endblock %}
