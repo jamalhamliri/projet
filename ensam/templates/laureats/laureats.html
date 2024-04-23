@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+
+<section class="header">
+    <div class="title">
+        <h1 class="heading mb-3">ASSOCIATION DES LAURÉATS DE L’ENSAM CASABLANCA</h1>
+    </div>
+</section>
+<section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+        <div  class="row">
+            <div class="col-lg-8 entries">
+                <article style="background-color: white" class="entry">
+                    <div class="entry-img">
+                        <img src="http://www.ensam-casa.ma/assets/images/laureatsLogo_2021_05_08_06_12_59.jpg" alt=""
+                             class="img-fluid"/>
+                    </div>
+
+                    <h2 class="entry-title"><a href="blog-single.html">AIAMC - Association des ingénieurs arts et
+                        métiers Casablanca</a></h2>
+
+                    <div class="entry-content">
+                        <p>
+                            Association des Ingénieurs Arts et Métiers Casablanca (AIAMC) est une association nationale
+                            à but non lucratif dans (...)
+                        </p>
+                        <div class="read-more">
+                            <a href="blog-single.html">Voir plus</a>
+                        </div>
+                    </div>
+                </article>
+                <!-- End blog entry -->
+
+
+            </div>
+            <!-- End blog entries list -->
+            <div class="col-lg-4">
+                <div style="background-color: white" class="sidebar">
+                    <h4>LIENS DIRECTS</h4>
+                    <div class="sidebar-item categories">
+                        <ul>
+                            {% show_menu 0 0 %}
+                        </ul>
+                        <!-- End sidebar categories -->
+                    </div>
+
+                    <h3 class="sidebar-title">LES PLUS RECENTS</h3>
+                    <div class="sidebar-item recent-posts">
+                        <div class="post-item clearfix">
+                            <h4><a href="blog-single.html">HUAWEI ICT COMPETITION 2023-2024 NATIONAL PHASE</a></h4>
+                        </div>
+                        <div class="post-item clearfix">
+                            <h4><a href="blog-single.html">Avis d’inscription au cycle doctoral 2023-2024</a></h4>
+                        </div>
+                        <div class="post-item clearfix">
+                            <h4><a href="blog-single.html">Liste des candidats à convoquer à l'entretien pour..</a></h4>
+                        </div>
+                        <div class="post-item clearfix">
+                            <h4><a href="blog-single.html">The fifth International Conference on Smart Applic...</a>
+                            </h4>
+                        </div>
+                        <div class="post-item clearfix">
+                            <h4><a href="blog-single.html">إعلان عن فتح باب الترشيح لشغل مناصب رؤساء المصالح...</a></h4>
+                        </div>
+                        <div class="post-item clearfix">
+                            <h4><a href="blog-single.html">International Conference on Friendly Mobility and...</a></h4>
+                        </div>
+                        <div class="post-item clearfix">
+                            <h4><a href="blog-single.html">الرتشـيحات للتسـجيل في تكوينـات الدكتـوراه برسـم ا...</a>
+                            </h4>
+                        </div>
+                        <div class="post-item clearfix">
+                            <h4><a href="blog-single.html">Résultats du concours commun d’accès en première a...</a>
+                            </h4>
+                        </div>
+                        <div class="post-item clearfix">
+                            <h4><a href="blog-single.html">Réinscription en Doctorat pour l'Année Universitai...</a>
+                            </h4>
+                        </div>
+                        <div class="post-item clearfix">
+                            <h4><a href="blog-single.html">Liste des Admis du Concours National Commun à l'Ec...</a>
+                            </h4>
+                        </div>
+                    </div>
+                    <!-- End sidebar recent posts -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

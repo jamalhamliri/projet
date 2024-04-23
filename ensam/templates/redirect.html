@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ouvrir dans une nouvelle fenêtre</title>
+    <script>
+        window.onload = function() {
+            var url = "{{ url }}";
+            var newWindow = window.open(url, '_blank');
+            if (newWindow) {
+                newWindow.focus();
+            } else {
+                // Gérer le cas où l'ouverture de la fenêtre est bloquée
+                alert("La tentative d'ouverture de la nouvelle fenêtre a été bloquée. Veuillez autoriser les pop-ups pour ce site.");
+                // Rediriger l'utilisateur vers l'URL
+                window.location.href = url;
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Contenu facultatif, peut être vide -->
+</body>
+</html>

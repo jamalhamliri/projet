@@ -1,0 +1,398 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+<!--<section id="team" class="team ">-->
+<!--    <div class="container">-->
+<!--        <h3 class="section-title">DÉPARTEMENT GÉNIE ELECTRIQUE</h3>-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-2">-->
+<!--            </div>-->
+<!--            <div class="col-lg-4">-->
+<!--                <h5 class="text-center sous-title" style="background-color: #00b3ff">Chef du département</h5>-->
+<!--                <div class="member d-flex align-items-start">-->
+<!--                    <div class="pic"><img src="{%static 'assets/img/man.jpg' %}" class="img-fluid" alt=""></div>-->
+<!--                    <div class="member-info">-->
+<!--                        <h4>Mr. ZEGRARI Mourad</h4>-->
+<!--                        <span>Chef du département</span>-->
+<!--                        <p>Departement:-->
+<!--                            Génie Electrique</p>-->
+<!--                        <div class="social">-->
+<!--                            <a href="mailto:mouradzegrari@yahoo.fr"><i class="ri-mail-fill"></i></a>-->
+<!--                            mouradzegrari@yahoo.fr-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-lg-4 mt-4 mt-lg-0">-->
+<!--                <h5 class="text-center sous-title" style="background-color: #00b3ff">Coordonnateur filière</h5>-->
+<!--                <div class="member d-flex align-items-start">-->
+<!--                    <div class="pic"><img src="{%static 'assets/img/man.jpg' %}" class="img-fluid" alt=""></div>-->
+<!--                    <div class="member-info">-->
+<!--                        <h4>Mr. EL AFIA Aziz</h4>-->
+<!--                        <span>Coordonnateur filière</span>-->
+<!--                        <p>Departement:-->
+<!--                            Génie Electrique</p>-->
+<!--                        <div class="social">-->
+<!--                            <a href="mailto:azelafia@gmail.com"><i class="ri-mail-fill"></i></a>-->
+<!--                            azelafia@gmail.com-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-2">-->
+<!--            </div>-->
+
+<!--            <div class="col-lg-4 mt-4">-->
+<!--                <div class="member d-flex align-items-start">-->
+<!--                    <div class="pic"><img src="{%static 'assets/img/man.jpg' %}" class="img-fluid" alt=""></div>-->
+<!--                    <div class="member-info">-->
+<!--                        <h4>Mr. AITELMAHJOUB Abdelhafid</h4>-->
+<!--                        <span>Professeur</span>-->
+<!--                        <p>Departement:-->
+<!--                            Génie Electrique</p>-->
+<!--                        <div class="social">-->
+<!--                            <a href="mailto:zinoui@hotmail.com"><i class="ri-mail-fill"></i></a>-->
+<!--                            zinoui@hotmail.com-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-lg-4 mt-4">-->
+<!--                <div class="member d-flex align-items-start">-->
+<!--                    <div class="pic"><img src="{%static 'assets/img/man.jpg' %}" class="img-fluid" alt=""></div>-->
+<!--                    <div class="member-info">-->
+<!--                        <h4>Mr. HAMLICH Mohamed</h4>-->
+<!--                        <span>Professeur</span>-->
+<!--                        <p>Departement:-->
+<!--                            Génie Electrique</p>-->
+<!--                        <div class="social">-->
+<!--                            <a href="mailto:moha.hamlich@gmail.com"><i class="ri-mail-fill"></i></a>-->
+<!--                            moha.hamlich@gmail.com-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 mt-4">-->
+<!--                <div class="member d-flex align-items-start">-->
+<!--                    <div class="pic"><img src="{%static 'assets/img/women.jpg' %}" class="img-fluid" alt=""></div>-->
+<!--                    <div class="member-info">-->
+<!--                        <h4>Mme. MACHKOUR Nadia</h4>-->
+<!--                        <span>Professeur</span>-->
+<!--                        <p>Departement:-->
+<!--                            Génie Electrique</p>-->
+<!--                        <div class="social">-->
+<!--                            <a href="mailto:nadia.machkour@gmail.com"><i class="ri-mail-fill"></i></a>-->
+<!--                            nadia.machkour@gmail.com-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 mt-4">-->
+<!--                <div class="member d-flex align-items-start">-->
+<!--                    <div class="pic"><img src="{%static 'assets/img/man.jpg' %}" class="img-fluid" alt=""></div>-->
+<!--                    <div class="member-info">-->
+<!--                        <h4>Mr. MOUTCHOU Mohamed</h4>-->
+<!--                        <span>Professeur</span>-->
+<!--                        <p>Departement:-->
+<!--                            Génie Electrique</p>-->
+<!--                        <div class="social">-->
+<!--                            <a href="mailto:m.moutchou@yahoo.fr"><i class="ri-mail-fill"></i></a>-->
+<!--                            m.moutchou@yahoo.fr-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-lg-4 mt-4">-->
+<!--                <div class="member d-flex align-items-start">-->
+<!--                    <div class="pic"><img src="{%static 'assets/img/women.jpg' %}" class="img-fluid" alt=""></div>-->
+<!--                    <div class="member-info">-->
+<!--                        <h4>Mme. RABBAH Nabila</h4>-->
+<!--                        <span>Professeur</span>-->
+<!--                        <p>Departement:-->
+<!--                            Génie Electrique</p>-->
+<!--                        <div class="social">-->
+<!--                            <a href="mailto:nabila_rabbah@yahoo.fr"><i class="ri-mail-fill"></i></a>-->
+<!--                            nabila_rabbah@yahoo.fr-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 mt-4">-->
+<!--                <div class="member d-flex align-items-start">-->
+<!--                    <div class="pic"><img src="{%static 'assets/img/man.jpg' %}" class="img-fluid" alt=""></div>-->
+<!--                    <div class="member-info">-->
+<!--                        <h4>Mr. TOUATI Abdelwahed</h4>-->
+<!--                        <span>Professeur</span>-->
+<!--                        <p>Departement:-->
+<!--                            Génie Electrique</p>-->
+<!--                        <div class="social">-->
+<!--                            <a href="mailto:touati_2010@hotmail.com"><i class="ri-mail-fill"></i></a>-->
+<!--                            touati_2010@hotmail.com-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 mt-4">-->
+<!--                <div class="member d-flex align-items-start">-->
+<!--                    <div class="pic"><img src="{%static 'assets/img/man.jpg' %}" class="img-fluid" alt=""></div>-->
+<!--                    <div class="member-info">-->
+<!--                        <h4>Mr. MAJDOUL Radouane</h4>-->
+<!--                        <span>Professeur</span>-->
+<!--                        <p>Departement:-->
+<!--                            Génie Electrique</p>-->
+<!--                        <div class="social">-->
+<!--                            <a href="mailto:r_majdoul2@hotmail.com"><i class="ri-mail-fill"></i></a>-->
+<!--                            r_majdoul2@hotmail.com-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-lg-4 mt-4">-->
+<!--                <div class="member d-flex align-items-start">-->
+<!--                    <div class="pic"><img src="{%static 'assets/img/man.jpg' %}" class="img-fluid" alt=""></div>-->
+<!--                    <div class="member-info">-->
+<!--                        <h4>Mr. BABA Youssef</h4>-->
+<!--                        <span>Professeur</span>-->
+<!--                        <p>Departement:-->
+<!--                            Génie Electrique</p>-->
+<!--                        <div class="social">-->
+<!--                            <a href="mailto:youssef.baba@gmail.com"><i class="ri-mail-fill"></i></a>-->
+<!--                            youssef.baba@gmail.com-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 mt-4">-->
+<!--                <div class="member d-flex align-items-start">-->
+<!--                    <div class="pic"><img src="{%static 'assets/img/man.jpg' %}" class="img-fluid" alt=""></div>-->
+<!--                    <div class="member-info">-->
+<!--                        <h4>Mr. ESSAADOUI Alami</h4>-->
+<!--                        <span>Professeur</span>-->
+<!--                        <p>Departement:-->
+<!--                            Génie Electrique</p>-->
+<!--                        <div class="social">-->
+<!--                            <a href="mailto:alami70@yahoo.fr"><i class="ri-mail-fill"></i></a>-->
+<!--                            alami70@yahoo.fr-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</section>-->
+<section class="content corps-professoral">
+    <div class="container">
+
+
+        <h3 class="section-title">DÉPARTEMENT GÉNIE ELECTRIQUE</h3>
+        <div class="p3">
+            <div class="row">
+                <div class="col-lg"></div>
+                <div class="col-lg-4 col-md-6 p-3">
+                    <h5 class="text-center sous-title">Chef du département</h5>
+                    <div class="card card-cascade wider">
+                        <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title"><strong>Mr.
+                                ZEGRARI Mourad</strong></h4>
+                            <h5 class="blue-text pb-2"><strong>Departement: </strong><br> Génie Electrique</h5>
+
+                            <div>
+                                <span class="bi bi-envelope"></span>
+                            </div>
+                            <div>
+                                <h6 class="card-text"> mouradzegrari@yahoo.fr
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 p-3">
+                    <h5 class="text-center sous-title">Coordonnateur filière</h5>
+                    <div class="card card-cascade wider">
+                        <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title"><strong>Mr.
+                                EL AFIA Aziz</strong></h4>
+                            <h5 class="blue-text pb-2"><strong>Departement: </strong><br> Génie Electrique</h5>
+
+                            <div>
+                                <span class="bi bi-envelope"></span>
+                            </div>
+                            <div>
+                                <h6 class="card-text"> azelafia@gmail.com
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg"></div>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 py-3">
+                    <div class="card card-cascade wider">
+                        <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title"><strong>Mr.
+                                AITELMAHJOUB Abdelhafid</strong></h4>
+                            <h5 class="blue-text pb-2"><strong>Departement: </strong><br> Génie Electrique</h5>
+                            <div>
+                                <span class="bi bi-envelope"></span>
+                            </div>
+                            <div>
+                                <h6 class="card-text"> zinoui@hotmail.com
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 py-3">
+                    <div class="card card-cascade wider">
+                        <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title"><strong>Mr.
+                                HAMLICH Mohamed</strong></h4>
+                            <h5 class="blue-text pb-2"><strong>Departement: </strong><br> Génie Electrique</h5>
+                            <div>
+                                <span class="bi bi-envelope"></span>
+                            </div>
+                            <div>
+                                <h6 class="card-text"> moha.hamlich@gmail.com
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 py-3">
+                    <div class="card card-cascade wider">
+                        <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title"><strong>Mme.
+                                MACHKOUR Nadia</strong></h4>
+                            <h5 class="blue-text pb-2"><strong>Departement: </strong><br> Génie Electrique</h5>
+                            <div>
+                                <span class="bi bi-envelope"></span>
+                            </div>
+                            <div>
+                                <h6 class="card-text"> nadia.machkour@gmail.com
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 py-3">
+                    <div class="card card-cascade wider">
+                        <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title"><strong>Mr.
+                                MOUTCHOU Mohamed</strong></h4>
+                            <h5 class="blue-text pb-2"><strong>Departement: </strong><br> Génie Electrique</h5>
+                            <div>
+                                <span class="bi bi-envelope"></span>
+                            </div>
+                            <div>
+                                <h6 class="card-text"> m.moutchou@yahoo.fr
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 py-3">
+                    <div class="card card-cascade wider">
+                        <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title"><strong>Mme.
+                                RABBAH Nabila</strong></h4>
+                            <h5 class="blue-text pb-2"><strong>Departement: </strong><br> Génie Electrique</h5>
+                            <div>
+                                <span class="bi bi-envelope"></span>
+                            </div>
+                            <div>
+                                <h6 class="card-text"> nabila_rabbah@yahoo.fr
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 py-3">
+                    <div class="card card-cascade wider">
+                        <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title"><strong>Mr.
+                                TOUATI Abdelwahed</strong></h4>
+                            <h5 class="blue-text pb-2"><strong>Departement: </strong><br> Génie Electrique</h5>
+                            <div>
+                                <span class="bi bi-envelope"></span>
+                            </div>
+                            <div>
+                                <h6 class="card-text"> touati_2010@hotmail.com
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 py-3">
+                    <div class="card card-cascade wider">
+                        <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title"><strong>Mr.
+                                MAJDOUL Radouane</strong></h4>
+                            <h5 class="blue-text pb-2"><strong>Departement: </strong><br> Génie Electrique</h5>
+                            <div>
+                                <span class="bi bi-envelope"></span>
+                            </div>
+                            <div>
+                                <h6 class="card-text"> r_majdoul2@hotmail.com
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 py-3">
+                    <div class="card card-cascade wider">
+                        <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title"><strong>Mr.
+                                BABA Youssef</strong></h4>
+                            <h5 class="blue-text pb-2"><strong>Departement: </strong><br> Génie Electrique</h5>
+                            <div>
+                                <span class="bi bi-envelope"></span>
+                            </div>
+                            <div>
+                                <h6 class="card-text"> youssef.baba@gmail.com
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 py-3">
+                    <div class="card card-cascade wider">
+                        <div class="card-body card-body-cascade text-center">
+                            <h4 class="card-title"><strong>Mr.
+                                ESSAADOUI Alami</strong></h4>
+                            <h5 class="blue-text pb-2"><strong>Departement: </strong><br> Génie Electrique</h5>
+                            <div>
+                                <span class="bi bi-envelope"></span>
+                            </div>
+                            <div>
+                                <h6 class="card-text"> alami70@yahoo.fr
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

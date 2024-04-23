@@ -1,0 +1,329 @@
+
+#topbar {
+    background-color: #1F5793;
+    height: 40px;
+    font-size: 20px;
+    transition: all 0.5s;
+    color: #fff;
+    padding: 0;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+
+#topbar .contact-info i {
+    font-style: normal;
+    color: #fff;
+}
+
+#topbar .contact-info i a,
+#topbar .contact-info i span {
+    padding-left: 5px;
+    color: #fff;
+}
+
+#topbar .contact-info i a {
+    /*line-height: 0;*/
+    transition: 0.3s;
+    transition: 0.3s;
+}
+
+#topbar .contact-info i a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+    background: #1F5793;
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 20px 0;
+
+}
+
+#header.header-scrolled {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 12px 0;
+}
+
+#header.header-inner-pages {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#header .logo {
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+#header .logo a {
+    color: #556270;
+}
+
+#header .logo img {
+    max-height: 40px;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation
+*/
+.navbar {
+    padding: 0;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+
+.navbar li {
+    position: relative;
+}
+
+.navbar a,
+.navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 10px 30px;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.navbar a i,
+.navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+}
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover > a {
+    color: white;
+}
+
+
+.navbar .child ul {
+    display: block;
+    position: absolute;
+    left: 14px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #1F5793;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+}
+
+.navbar > ul:first-child > li:not(:first-child)::after {
+    content: '▼ |';
+    color: white;
+    margin-left: 5px;
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    transform: translateY(-50%);
+}
+
+
+.navbar .child ul li {
+    min-width: 200px;
+}
+
+.navbar .child ul a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+    font-weight: 400;
+}
+
+.navbar .child ul a i {
+    font-size: 12px;
+}
+
+.navbar .child ul a:hover,
+.navbar .child ul .active:hover,
+.navbar .child ul li:hover > a {
+    color: white;
+}
+
+.navbar .child:hover > ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+}
+
+.navbar .child .child ul {
+    top: 0;
+    left: calc(100% - 30px);
+    visibility: hidden;
+}
+
+.navbar .child .child:hover > ul {
+    opacity: 1;
+    top: 0;
+    left: 100%;
+    visibility: visible;
+}
+
+@media (max-width: 1366px) {
+    .navbar .child .child ul {
+        left: -90%;
+    }
+
+    .navbar .child .child:hover > ul {
+        left: -100%;
+    }
+}
+
+/**
+* Mobile Navigation
+*/
+.mobile-nav-toggle {
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+    line-height: 0;
+    transition: 0.5s;
+}
+
+.mobile-nav-toggle.bi-x {
+    color: #fff;
+}
+
+@media (max-width: 991px) {
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+}
+
+/* Styles pour le menu de navigation mobile */
+.navbar-mobile {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(63, 73, 83, 0.9);
+    transition: 0.3s;
+    z-index: 999;
+}
+
+.navbar-mobile .mobile-nav-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 0;
+    transition: 0.5s;
+}
+
+.navbar-mobile .mobile-nav-toggle.bi-x {
+    color: #fff;
+}
+
+.navbar-mobile ul {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    padding: 10px 0;
+    background-color: #1F5793;
+    overflow-y: auto;
+    transition: 0.3s;
+}
+
+/* Affichage du sous-menu au survol de l'élément parent 'child' */
+/*.navbar-mobile .child:hover > ul {*/
+/*    display: block;*/
+/*}*/
+.navbar-mobile ul > li:hover > ul {
+    display: block;
+}
+
+
+/*.navbar-mobile a i,*/
+/*.navbar-mobile a:focus i {*/
+/*    padding: 10px 20px;*/
+/*    font-size: 15px;*/
+/*    color: white;*/
+/*}*/
+
+/*.navbar-mobile a:hover,*/
+/*.navbar-mobile .active,*/
+/*.navbar-mobile .active:focus,*/
+/*.navbar-mobile li:hover > a {*/
+/*    color: white;*/
+/*}*/
+
+/* Sous-menu pour les éléments ayant la classe 'child' */
+.navbar-mobile .child ul {
+    display: none;
+    position: static;
+    margin: 10px 20px;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    background: blue;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+.navbar-mobile .child ul li {
+    min-width: 200px;
+}
+
+.navbar-mobile .child ul a {
+    padding: 10px 20px;
+}
+
+.navbar-mobile .child ul a i {
+    font-size: 15px;
+}
+
+/*.navbar-mobile .child ul a:hover,*/
+/*.navbar-mobile .child ul .active:hover,*/
+/*.navbar-mobile .child ul li:hover > a {*/
+/*    color: #d9232d;*/
+/*}*/
+
+
+
+
+

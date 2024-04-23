@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load cms_tags %}
+{% load static %}
+{% block content %}
+
+
+<section style="background-color: red">
+
+    <center><p>Vous serez redirigé vers une autre page dans <span id="countdown">10</span> secondes...</p></center>
+
+    <script>
+        // Fonction pour décompter les secondes et rediriger après le délai spécifié
+        function countdown() {
+            var seconds = 0; // Nombre de secondes avant la redirection
+            var countdownElement = document.getElementById('countdown');
+
+            var countdownInterval = setInterval(function() {
+                seconds--;
+                countdownElement.textContent = seconds;
+
+                if (seconds <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'https://ent.univh2c.ma/uPortal/f/welcome/normal/render.uP'; // Redirection après le décompte
+                }
+            }, 1000); // Actualisation toutes les secondes (1000 ms)
+        }
+
+        // Appel de la fonction de décompte au chargement de la page
+        countdown();
+    </script>
+</section>
+
+{%endblock content %}

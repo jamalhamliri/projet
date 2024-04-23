@@ -1,0 +1,46 @@
+* {
+    font-family: 'League Spartan', sans-serif;
+}
+
+body {
+    /*background-color: #f7f7f7; !* Couleur de fond *!*/
+    background-image: url("{% static 'assets/img/zalijjj.png' %}"); /* Image de fond */
+    background-repeat: repeat; /* Répétition de l'image sur le fond */
+    background-position: center; /* Position de l'image de fond */
+    opacity: 0.9; /* Opacité de l'arrière-plan */
+
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 2%;
+}
+
+.row {
+
+    font-size: 18px; /* Taille de la police pour le texte */
+}
+
+.tete {
+    min-height: 100px;
+    background: linear-gradient(to right, #004AAD, #5de0e6);
+}
+
+.tete h1 {
+    /*appearance: none;*/
+    font-family: 'League Spartan', sans-serif;
+    margin-left: 40px;
+    margin-top: 0px;
+    color: white;
+    font-size: 60px;
+}
+
+.custom-tab .nav-link.active {
+    background-color: #1F5793; /* Changer la couleur du fond pour les onglets actifs */
+    color: white; /* Changer la couleur du texte pour les onglets actifs */
+}
+
+.nav-link {
+    color: #1F5793; /* Changer la couleur du fond pour les onglets inactifs */
+}
