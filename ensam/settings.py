@@ -6,7 +6,6 @@ from pathlib import Path
 from decouple import config
 
 
-
 def gettext(s):
     """
     Return the translated version of the input string 's'.
@@ -36,12 +35,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = '%dqf8l7n1!ja76drjg+3ac+=xrn$b@b6hb1^j0z7#_)i++l5n9'
+# SECRET_KEY = '%dqf8l7n1!ja76drjg+3ac+=xrn$b@b6hb1^j0z7#_)i++l5n9'
 SECRET_KEY = config('SECRET_KEY')
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -95,14 +93,12 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
 
-
 if DEBUG:
     STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static'),
     ]
 else:
     STATIC_ROOT = os.path.join(DATA_DIR, 'static')
-
 
 SITE_ID = 1
 
